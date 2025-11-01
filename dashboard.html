@@ -349,8 +349,23 @@
                                                 ? `$${data}M`
                                                 : data;
                                     }
-                                    const x = element.x;
-                                    const y = element.y + 15;
+
+                                    // Check if this is a horizontal bar chart
+                                    const isHorizontal =
+                                        chart.config.options.indexAxis === "y";
+                                    let x, y;
+
+                                    if (isHorizontal) {
+                                        // For horizontal bars, center text inside the bar
+                                        const barWidth =
+                                            element.x - element.base;
+                                        x = element.base + barWidth / 2;
+                                        y = element.y;
+                                    } else {
+                                        // For vertical bars
+                                        x = element.x;
+                                        y = element.y + 15;
+                                    }
 
                                     ctx.fillText(label, x, y);
                                 } else if (
