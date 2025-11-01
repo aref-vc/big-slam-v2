@@ -651,7 +651,12 @@
                                             ? "10px"
                                             : "12px";
 
-                                    ctx.fillStyle = "#FFFCF2";
+                                    // Use darker color for sponsor categories chart for better visibility
+                                    ctx.fillStyle =
+                                        chartId ===
+                                        "sponsorCategoriesByTournament"
+                                            ? "#252422"
+                                            : "#FFFCF2";
                                     ctx.font = `bold ${fontSize} Berkeley Mono`;
                                     ctx.textAlign = "center";
                                     ctx.textBaseline = "middle";
@@ -697,7 +702,25 @@
                                         chartId ===
                                         "sponsorCategoriesByTournament"
                                     ) {
-                                        label = `${data}%`; // Show as percentage
+                                        // Convert percentage back to actual sponsor count
+                                        const tournamentLabel = dataset.label;
+                                        let totalSponsors = 0;
+
+                                        if (tournamentLabel === "Wimbledon")
+                                            totalSponsors = 17;
+                                        else if (tournamentLabel === "US Open")
+                                            totalSponsors = 25;
+                                        else if (
+                                            tournamentLabel === "French Open"
+                                        )
+                                            totalSponsors = 22;
+                                        else totalSponsors = 50; // Australian Open
+
+                                        const count = Math.round(
+                                            (data / 100) * totalSponsors,
+                                        );
+                                        label =
+                                            count > 0 ? count.toString() : ""; // Show count, hide if 0
                                     } else {
                                         label =
                                             typeof data === "number"
