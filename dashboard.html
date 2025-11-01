@@ -2056,36 +2056,36 @@
                 data: {
                     datasets: [
                         {
-                            label: "US Open",
-                            data: [{ x: 50, y: 2.2 }], // x: number of sponsors, y: revenue per sponsor ($M)
-                            backgroundColor: "#EB5E28",
-                            borderColor: "#EB5E28",
-                            pointRadius: 10,
-                            pointHoverRadius: 12,
-                        },
-                        {
                             label: "Wimbledon",
-                            data: [{ x: 50, y: 3.4 }],
+                            data: [{ x: 17, y: 10.0 }], // x: number of sponsors, y: revenue per sponsor ($M)
                             backgroundColor: "#252422",
                             borderColor: "#252422",
-                            pointRadius: 10,
-                            pointHoverRadius: 12,
+                            pointRadius: 12,
+                            pointHoverRadius: 14,
+                        },
+                        {
+                            label: "US Open",
+                            data: [{ x: 25, y: 4.4 }],
+                            backgroundColor: "#EB5E28",
+                            borderColor: "#EB5E28",
+                            pointRadius: 12,
+                            pointHoverRadius: 14,
                         },
                         {
                             label: "French Open",
-                            data: [{ x: 50, y: 1.6 }],
+                            data: [{ x: 22, y: 3.6 }],
                             backgroundColor: "#403D39",
                             borderColor: "#403D39",
-                            pointRadius: 10,
-                            pointHoverRadius: 12,
+                            pointRadius: 12,
+                            pointHoverRadius: 14,
                         },
                         {
                             label: "Australian Open",
                             data: [{ x: 50, y: 1.4 }],
                             backgroundColor: "#CCC5B9",
                             borderColor: "#CCC5B9",
-                            pointRadius: 10,
-                            pointHoverRadius: 12,
+                            pointRadius: 12,
+                            pointHoverRadius: 14,
                         },
                     ],
                 },
@@ -2131,11 +2131,14 @@
                                     weight: "bold",
                                 },
                             },
+                            min: 10,
+                            max: 55,
                             grid: {
                                 color: "#F0EDE6",
                                 drawBorder: false,
                             },
                             ticks: {
+                                stepSize: 10,
                                 font: {
                                     family: "Berkeley Mono",
                                     size: 11,
