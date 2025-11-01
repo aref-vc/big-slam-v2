@@ -399,6 +399,22 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Section 6: Top Sponsorship Deals -->
+            <section class="chart-section">
+                <h2 class="section-title">TOP SPONSORSHIP DEALS</h2>
+                <div class="charts-grid single-chart">
+                    <!-- Largest Individual Sponsorship Deals -->
+                    <div class="chart-container">
+                        <h3 class="chart-title">
+                            LARGEST INDIVIDUAL SPONSORSHIP DEALS
+                        </h3>
+                        <div class="chart-canvas">
+                            <canvas id="topSponsorshipDeals"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
 
         <script>
@@ -1676,6 +1692,83 @@
                                             ? " Tournament"
                                             : " Tournaments")
                                     );
+                                },
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                },
+                            },
+                        },
+                        y: {
+                            grid: {
+                                display: false,
+                            },
+                            ticks: {
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                    weight: "bold",
+                                },
+                            },
+                        },
+                    },
+                },
+            });
+
+            // ========== SECTION 6: TOP SPONSORSHIP DEALS ==========
+
+            // Largest Individual Sponsorship Deals (horizontal bar)
+            const topSponsorshipDealsCtx = document
+                .getElementById("topSponsorshipDeals")
+                .getContext("2d");
+            new Chart(topSponsorshipDealsCtx, {
+                type: "bar",
+                data: {
+                    labels: [
+                        "JP Morgan (US Open)",
+                        "Emirates (US Open)",
+                        "BNP Paribas (French Open)",
+                        "Rolex (Wimbledon)",
+                        "American Express (US Open)",
+                        "IBM (Wimbledon)",
+                        "ANZ (Australian Open)",
+                        "KIA (Australian Open)",
+                    ],
+                    datasets: [
+                        {
+                            data: [25, 22, 20, 18, 15, 14, 12, 10], // Deal values in millions
+                            backgroundColor: "#CCC5B9",
+                            borderRadius: 8,
+                            barThickness: 40,
+                        },
+                    ],
+                },
+                options: {
+                    indexAxis: "y",
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    return `Deal Value: $${context.parsed.x}M per year`;
+                                },
+                            },
+                        },
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            grid: {
+                                color: "#F0EDE6",
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                callback: function (value) {
+                                    return `$${value}M`;
                                 },
                                 font: {
                                     family: "Berkeley Mono",
