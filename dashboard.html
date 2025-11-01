@@ -131,7 +131,7 @@
 
             /* Chart Sections */
             .chart-section {
-                margin-bottom: 3rem;
+                margin-bottom: 4rem;
             }
 
             .section-title {
@@ -641,6 +641,10 @@
                                         chartId === "crossTournamentSponsors"
                                     ) {
                                         label = data.toString(); // Just show the number
+                                    } else if (
+                                        chartId === "partnershipLongevity"
+                                    ) {
+                                        label = data.toString(); // Just show years as number
                                     } else {
                                         label =
                                             typeof data === "number"
@@ -1814,20 +1818,18 @@
                 data: {
                     labels: [
                         "Rolex",
-                        "IBM",
                         "Emirates",
-                        "Evian",
                         "Lavazza",
-                        "Ralph Lauren",
                         "American Express",
-                        "JP Morgan",
+                        "IBM",
+                        "Haier",
                     ],
                     datasets: [
                         {
-                            data: [4, 3, 3, 2, 2, 2, 2, 2], // Number of tournaments they sponsor
+                            data: [4, 4, 3, 3, 2, 2], // Number of tournaments they sponsor
                             backgroundColor: "#EB5E28",
                             borderRadius: 8,
-                            barThickness: 40,
+                            barThickness: 35,
                         },
                     ],
                 },
@@ -1898,21 +1900,21 @@
                 type: "bar",
                 data: {
                     labels: [
+                        "Barclays (Wimbledon)",
+                        "JP Morgan Chase (US Open)",
                         "JP Morgan (US Open)",
                         "Emirates (US Open)",
-                        "BNP Paribas (French Open)",
-                        "Rolex (Wimbledon)",
+                        "Kia (Australian Open)",
+                        "Emirates (Wimbledon)",
                         "American Express (US Open)",
-                        "IBM (Wimbledon)",
-                        "ANZ (Australian Open)",
-                        "KIA (Australian Open)",
+                        "Rolex (All Grand Slams)",
                     ],
                     datasets: [
                         {
-                            data: [25, 22, 20, 18, 15, 14, 12, 10], // Deal values in millions
+                            data: [25, 22, 19, 17, 13, 12, 10, 10], // Deal values in millions USD
                             backgroundColor: "#CCC5B9",
                             borderRadius: 8,
-                            barThickness: 40,
+                            barThickness: 35,
                         },
                     ],
                 },
@@ -1978,18 +1980,18 @@
                         "Slazenger & Wimbledon",
                         "BNP Paribas & French Open",
                         "Rolex & Wimbledon",
+                        "JP Morgan Chase & US Open",
+                        "Keith Prowse & Wimbledon",
                         "IBM & Wimbledon",
-                        "KIA & Australian Open",
-                        "Evian & Wimbledon",
-                        "JP Morgan & US Open",
-                        "Emirates & US Open",
+                        "IBM & US Open",
+                        "American Express & US Open",
                     ],
                     datasets: [
                         {
-                            data: [122, 51, 46, 35, 22, 17, 14, 12], // Years of partnership (sorted)
+                            data: [122, 51, 46, 43, 42, 34, 30, 30], // Years of partnership (sorted)
                             backgroundColor: "#403D39",
                             borderRadius: 8,
-                            barThickness: 40,
+                            barThickness: 35,
                         },
                     ],
                 },
