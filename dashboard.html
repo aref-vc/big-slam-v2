@@ -182,6 +182,53 @@
                 height: 350px;
             }
 
+            /* Comparison Table Styles */
+            .comparison-table {
+                background: var(--bg-white);
+                padding: 2rem;
+                border-radius: 12px;
+                overflow-x: auto;
+            }
+
+            .comparison-table table {
+                width: 100%;
+                border-collapse: collapse;
+                font-family: "Berkeley Mono", monospace;
+            }
+
+            .comparison-table th {
+                background: var(--bg-cream);
+                padding: 1rem;
+                text-align: left;
+                font-weight: bold;
+                font-size: 0.9rem;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                border-bottom: 2px solid var(--text-primary);
+            }
+
+            .comparison-table td {
+                padding: 1rem;
+                border-bottom: 1px solid #f0ede6;
+                font-size: 0.95rem;
+            }
+
+            .comparison-table .metric-label {
+                font-weight: bold;
+                color: var(--text-primary);
+                text-transform: uppercase;
+                font-size: 0.85rem;
+            }
+
+            .comparison-table .highlight {
+                color: var(--accent);
+                font-weight: bold;
+            }
+
+            .comparison-table tbody tr:hover {
+                background: var(--bg-cream);
+            }
+
             /* Responsive Design */
             @media (max-width: 1200px) {
                 .metrics-container {
@@ -445,6 +492,100 @@
                             <canvas id="strategicPositioning"></canvas>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <!-- Section 9: Detailed Tournament Comparisons -->
+            <section class="chart-section">
+                <h2 class="section-title">DETAILED TOURNAMENT COMPARISONS</h2>
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>METRIC</th>
+                                <th>WIMBLEDON</th>
+                                <th>US OPEN</th>
+                                <th>FRENCH OPEN</th>
+                                <th>AUSTRALIAN OPEN</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="metric-label">Total Revenue</td>
+                                <td class="highlight">$555M</td>
+                                <td>$534M</td>
+                                <td>$368M</td>
+                                <td>$364M</td>
+                            </tr>
+                            <tr>
+                                <td class="metric-label">
+                                    Sponsorship Revenue
+                                </td>
+                                <td class="highlight">$170M</td>
+                                <td>$110M</td>
+                                <td>$80M</td>
+                                <td>$70M</td>
+                            </tr>
+                            <tr>
+                                <td class="metric-label">Broadcast Rights</td>
+                                <td class="highlight">$253M</td>
+                                <td>$170M</td>
+                                <td>$147M</td>
+                                <td>$89M</td>
+                            </tr>
+                            <tr>
+                                <td class="metric-label">Attendance 2024</td>
+                                <td>532,651</td>
+                                <td>1,000,000</td>
+                                <td>675,000</td>
+                                <td class="highlight">1,110,657</td>
+                            </tr>
+                            <tr>
+                                <td class="metric-label">Number of Sponsors</td>
+                                <td>50</td>
+                                <td>50</td>
+                                <td>50</td>
+                                <td>50</td>
+                            </tr>
+                            <tr>
+                                <td class="metric-label">Prize Money</td>
+                                <td>$64M</td>
+                                <td class="highlight">$75M</td>
+                                <td>$61M</td>
+                                <td>$64M</td>
+                            </tr>
+                            <tr>
+                                <td class="metric-label">
+                                    Revenue per Attendee
+                                </td>
+                                <td class="highlight">$1,042</td>
+                                <td>$534</td>
+                                <td>$545</td>
+                                <td>$328</td>
+                            </tr>
+                            <tr>
+                                <td class="metric-label">Profit Margin</td>
+                                <td>10%</td>
+                                <td class="highlight">49%</td>
+                                <td>20%</td>
+                                <td>15%</td>
+                            </tr>
+                            <tr>
+                                <td class="metric-label">Key Sponsors</td>
+                                <td>Rolex, IBM, Evian</td>
+                                <td>JP Morgan, Emirates</td>
+                                <td>BNP Paribas, Rolex</td>
+                                <td>KIA, ANZ, Rolex</td>
+                            </tr>
+                            <tr>
+                                <td class="metric-label">Founded</td>
+                                <td>1877</td>
+                                <td>1881</td>
+                                <td>1891</td>
+                                <td>1905</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </section>
         </div>
