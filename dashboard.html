@@ -311,6 +311,71 @@
                 transform: translateX(-50%);
             }
 
+            /* Player Silhouette Visualization Styles */
+            .player-silhouette-section {
+                background: var(--bg-white);
+                padding: 3rem 2rem;
+                border-radius: 12px;
+                border: 1px solid var(--border-light);
+            }
+
+            .player-silhouette-container {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 3rem;
+                max-width: 1200px;
+                margin: 2rem auto;
+            }
+
+            .player-stack {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .player-wrapper {
+                width: 200px;
+                height: 280px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .player-wrapper img {
+                display: block;
+                object-fit: contain;
+                object-position: center bottom;
+            }
+
+            .revenue-legend {
+                display: flex;
+                justify-content: center;
+                gap: 2.5rem;
+                margin-top: 3rem;
+                padding-top: 2rem;
+                border-top: 1px solid var(--border);
+            }
+
+            .legend-item {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .legend-dot {
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+            }
+
+            .legend-label {
+                font-size: 0.9rem;
+                font-weight: 500;
+                color: var(--text-primary);
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+
             /* Responsive Design */
             @media (max-width: 1200px) {
                 .metrics-container {
@@ -318,6 +383,10 @@
                 }
 
                 .tennis-balls-container {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                .player-silhouette-container {
                     grid-template-columns: repeat(2, 1fr);
                 }
             }
@@ -341,6 +410,15 @@
 
                 .ball-stack {
                     min-height: 300px;
+                }
+
+                .player-silhouette-container {
+                    grid-template-columns: 1fr;
+                }
+
+                .player-wrapper {
+                    width: 150px;
+                    height: 210px;
                 }
             }
         </style>
@@ -752,6 +830,73 @@
                         <div class="tournament-stack">
                             <h3 class="tournament-label">WIMBLEDON (17)</h3>
                             <div class="ball-stack" id="wimbledonStack"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 11: Revenue Breakdown by Player Silhouette -->
+            <section class="chart-section">
+                <h2 class="section-title">REVENUE BREAKDOWN BY SOURCE</h2>
+                <div class="player-silhouette-section">
+                    <h3 class="chart-title">REVENUE BREAKDOWN BY SOURCE</h3>
+                    <div class="player-silhouette-container">
+                        <!-- Australian Open -->
+                        <div class="player-stack">
+                            <div
+                                class="player-wrapper"
+                                id="australianOpenPlayer"
+                            ></div>
+                            <h3 class="tournament-label">AUSTRALIAN OPEN</h3>
+                        </div>
+
+                        <!-- US Open -->
+                        <div class="player-stack">
+                            <div class="player-wrapper" id="usOpenPlayer"></div>
+                            <h3 class="tournament-label">US OPEN</h3>
+                        </div>
+
+                        <!-- French Open -->
+                        <div class="player-stack">
+                            <div
+                                class="player-wrapper"
+                                id="frenchOpenPlayer"
+                            ></div>
+                            <h3 class="tournament-label">FRENCH OPEN</h3>
+                        </div>
+
+                        <!-- Wimbledon -->
+                        <div class="player-stack">
+                            <div
+                                class="player-wrapper"
+                                id="wimbledonPlayer"
+                            ></div>
+                            <h3 class="tournament-label">WIMBLEDON</h3>
+                        </div>
+                    </div>
+
+                    <!-- Legend -->
+                    <div class="revenue-legend">
+                        <div class="legend-item">
+                            <span
+                                class="legend-dot"
+                                style="background: #eb5e28"
+                            ></span>
+                            <span class="legend-label">Sponsorship</span>
+                        </div>
+                        <div class="legend-item">
+                            <span
+                                class="legend-dot"
+                                style="background: #403d39"
+                            ></span>
+                            <span class="legend-label">Broadcasting</span>
+                        </div>
+                        <div class="legend-item">
+                            <span
+                                class="legend-dot"
+                                style="background: #ccc5b9"
+                            ></span>
+                            <span class="legend-label">Others</span>
                         </div>
                     </div>
                 </div>
@@ -2980,6 +3125,118 @@
                     );
                 }
             });
+
+            // ========== PLAYER SILHOUETTE REVENUE VISUALIZATION ==========
+
+            // Revenue data by tournament (in millions)
+            const revenueData = {
+                australianOpen: {
+                    sponsorship: 56, // Sponsorship
+                    broadcasting: 89, // Broadcast Rights
+                    others: 255, // Ticketing + Hospitality + Other
+                },
+                usOpen: {
+                    sponsorship: 124,
+                    broadcasting: 170,
+                    others: 266, // 209 + 83 + 74
+                },
+                frenchOpen: {
+                    sponsorship: 74,
+                    broadcasting: 147,
+                    others: 147, // 112 + 20 + 15
+                },
+                wimbledon: {
+                    sponsorship: 125,
+                    broadcasting: 253,
+                    others: 177, // 81 + 35 + 61
+                },
+            };
+
+            // Color mapping for revenue sources
+            const revenueColors = {
+                sponsorship: "#EB5E28", // Fire Orange
+                broadcasting: "#403D39", // Charcoal
+                others: "#CCC5B9", // Warm Gray
+            };
+
+            // Function to create player silhouette with proportional fill
+            function createPlayerSilhouette(tournamentKey) {
+                const data = revenueData[tournamentKey];
+                const total =
+                    data.sponsorship + data.broadcasting + data.others;
+
+                // Calculate percentages
+                const sponsorshipPercent = (data.sponsorship / total) * 100;
+                const broadcastingPercent = (data.broadcasting / total) * 100;
+                const othersPercent = (data.others / total) * 100;
+
+                const wrapper = document.getElementById(
+                    tournamentKey + "Player",
+                );
+
+                // Create three layers from bottom to top
+                const layers = [
+                    {
+                        color: revenueColors.sponsorship,
+                        height: sponsorshipPercent,
+                    },
+                    {
+                        color: revenueColors.broadcasting,
+                        height: broadcastingPercent,
+                    },
+                    { color: revenueColors.others, height: othersPercent },
+                ];
+
+                // Load image first to get proper dimensions
+                const baseImg = new Image();
+                baseImg.src = "Tennis Player.jpg";
+
+                baseImg.onload = function () {
+                    let cumulativeHeight = 0;
+                    layers.forEach((layer, index) => {
+                        const img = document.createElement("img");
+                        img.src = "Tennis Player.jpg";
+                        img.style.position = "absolute";
+                        img.style.bottom = "0";
+                        img.style.left = "0";
+                        img.style.width = "100%";
+                        img.style.height = "100%";
+                        img.style.objectFit = "cover";
+                        img.style.objectPosition = "center center";
+
+                        // Apply color filter based on the revenue source
+                        if (layer.color === revenueColors.sponsorship) {
+                            img.style.filter = `brightness(0) saturate(100%) invert(36%) sepia(86%) saturate(1668%) hue-rotate(356deg) brightness(98%) contrast(91%)`;
+                        } else if (layer.color === revenueColors.broadcasting) {
+                            img.style.filter = `brightness(0) saturate(100%) invert(13%) sepia(5%) saturate(1456%) hue-rotate(336deg) brightness(95%) contrast(92%)`;
+                        } else {
+                            img.style.filter = `brightness(0) saturate(100%) invert(85%) sepia(8%) saturate(345%) hue-rotate(359deg) brightness(92%) contrast(88%)`;
+                        }
+
+                        // Clip to show only the portion of this revenue source (from bottom up)
+                        const topClip = 100 - (cumulativeHeight + layer.height);
+                        const bottomClip = cumulativeHeight;
+                        img.style.clipPath = `inset(${topClip}% 0 ${bottomClip}% 0)`;
+
+                        wrapper.appendChild(img);
+                        cumulativeHeight += layer.height;
+                    });
+                };
+
+                baseImg.onerror = function () {
+                    console.error(
+                        "Failed to load Tennis Player.jpg for " + tournamentKey,
+                    );
+                };
+            }
+
+            // Generate player silhouettes for all tournaments
+            console.log("Creating player silhouettes...");
+            createPlayerSilhouette("australianOpen");
+            createPlayerSilhouette("usOpen");
+            createPlayerSilhouette("frenchOpen");
+            createPlayerSilhouette("wimbledon");
+            console.log("Player silhouettes created");
         </script>
     </body>
 </html>
