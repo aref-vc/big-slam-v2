@@ -3192,6 +3192,19 @@
                 baseImg.src = "Tennis Player.jpg";
 
                 baseImg.onload = function () {
+                    // First, add the base transparent/white image for unfilled portions
+                    const basePlayer = document.createElement("img");
+                    basePlayer.src = "Tennis Player.jpg";
+                    basePlayer.style.position = "absolute";
+                    basePlayer.style.bottom = "0";
+                    basePlayer.style.left = "0";
+                    basePlayer.style.width = "100%";
+                    basePlayer.style.height = "100%";
+                    basePlayer.style.objectFit = "cover";
+                    basePlayer.style.objectPosition = "center center";
+                    basePlayer.style.opacity = "0.15";
+                    wrapper.appendChild(basePlayer);
+
                     let cumulativeHeight = 0;
                     layers.forEach((layer, index) => {
                         const img = document.createElement("img");
@@ -3205,12 +3218,16 @@
                         img.style.objectPosition = "center center";
 
                         // Apply color filter based on the revenue source
+                        // Use a simpler colorization that preserves the image texture
                         if (layer.color === revenueColors.sponsorship) {
-                            img.style.filter = `brightness(0) saturate(100%) invert(36%) sepia(86%) saturate(1668%) hue-rotate(356deg) brightness(98%) contrast(91%)`;
+                            // Fire Orange
+                            img.style.filter = `sepia(100%) saturate(300%) brightness(0.9) hue-rotate(340deg)`;
                         } else if (layer.color === revenueColors.broadcasting) {
-                            img.style.filter = `brightness(0) saturate(100%) invert(13%) sepia(5%) saturate(1456%) hue-rotate(336deg) brightness(95%) contrast(92%)`;
+                            // Charcoal
+                            img.style.filter = `grayscale(100%) brightness(0.3) contrast(1.2)`;
                         } else {
-                            img.style.filter = `brightness(0) saturate(100%) invert(85%) sepia(8%) saturate(345%) hue-rotate(359deg) brightness(92%) contrast(88%)`;
+                            // Warm Gray
+                            img.style.filter = `grayscale(100%) brightness(0.8) contrast(0.9)`;
                         }
 
                         // Clip to show only the portion of this revenue source (from bottom up)
