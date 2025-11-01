@@ -1930,7 +1930,7 @@
                 },
             });
 
-            // Sponsor Categories by Tournament (Stacked Bar Chart)
+            // Top 3 Sponsor Categories by Tournament (Grouped Bar Chart)
             const sponsorCategoriesByTournamentCtx = document
                 .getElementById("sponsorCategoriesByTournament")
                 .getContext("2d");
@@ -1938,41 +1938,36 @@
                 type: "bar",
                 data: {
                     labels: [
-                        "Wimbledon",
-                        "US Open",
-                        "French Open",
-                        "Australian Open",
+                        "Banking/Finance",
+                        "Beverages",
+                        "Technology",
+                        "Luxury/Fashion",
+                        "Automotive",
                     ],
                     datasets: [
                         {
-                            label: "Banking/Finance",
-                            data: [2, 4, 2, 2], // Number of sponsors in this category
-                            backgroundColor: "#EB5E28",
-                        },
-                        {
-                            label: "Automotive",
-                            data: [1, 1, 1, 1],
+                            label: "Wimbledon",
+                            data: [20, 18, 14, 18, 6], // % of sponsors in top categories
                             backgroundColor: "#252422",
+                            borderRadius: 8,
                         },
                         {
-                            label: "Technology",
-                            data: [1, 1, 1, 1],
+                            label: "US Open",
+                            data: [16, 12, 12, 8, 4],
+                            backgroundColor: "#EB5E28",
+                            borderRadius: 8,
+                        },
+                        {
+                            label: "French Open",
+                            data: [9, 18, 9, 9, 5],
                             backgroundColor: "#403D39",
+                            borderRadius: 8,
                         },
                         {
-                            label: "Beverages",
-                            data: [3, 3, 4, 4],
+                            label: "Australian Open",
+                            data: [4, 8, 6, 4, 2],
                             backgroundColor: "#CCC5B9",
-                        },
-                        {
-                            label: "Luxury/Fashion",
-                            data: [3, 2, 2, 2],
-                            backgroundColor: "#8B8680",
-                        },
-                        {
-                            label: "Other",
-                            data: [7, 14, 12, 41],
-                            backgroundColor: "#F0EDE6",
+                            borderRadius: 8,
                         },
                     ],
                 },
@@ -1981,25 +1976,26 @@
                     maintainAspectRatio: false,
                     scales: {
                         x: {
-                            stacked: true,
                             grid: {
                                 display: false,
                             },
                             ticks: {
                                 font: {
                                     family: "Berkeley Mono",
-                                    size: 11,
+                                    size: 10,
                                     weight: "bold",
                                 },
                             },
                         },
                         y: {
-                            stacked: true,
                             grid: {
                                 color: "#F0EDE6",
                                 drawBorder: false,
                             },
                             ticks: {
+                                callback: function (value) {
+                                    return `${value}%`;
+                                },
                                 font: {
                                     family: "Berkeley Mono",
                                     size: 11,
@@ -2007,13 +2003,14 @@
                             },
                             title: {
                                 display: true,
-                                text: "NUMBER OF SPONSORS",
+                                text: "% OF TOTAL SPONSORS",
                                 font: {
                                     family: "Berkeley Mono",
                                     size: 12,
                                     weight: "bold",
                                 },
                             },
+                            max: 25,
                         },
                     },
                     plugins: {
@@ -2022,25 +2019,39 @@
                             labels: {
                                 usePointStyle: true,
                                 pointStyle: "circle",
-                                padding: 10,
+                                padding: 15,
                                 font: {
                                     family: "Berkeley Mono",
-                                    size: 10,
+                                    size: 11,
                                 },
                             },
                         },
                         tooltip: {
                             callbacks: {
-                                afterLabel: function (context) {
-                                    const total = context.dataset.data.reduce(
-                                        (a, b) => a + b,
-                                        0,
+                                label: function (context) {
+                                    const tournament = context.dataset.label;
+                                    const category = context.label;
+                                    const percentage = context.parsed.y;
+
+                                    // Calculate actual number of sponsors
+                                    let totalSponsors = 0;
+                                    if (tournament === "Wimbledon")
+                                        totalSponsors = 17;
+                                    else if (tournament === "US Open")
+                                        totalSponsors = 25;
+                                    else if (tournament === "French Open")
+                                        totalSponsors = 22;
+                                    else totalSponsors = 50;
+
+                                    const count = Math.round(
+                                        (percentage / 100) * totalSponsors,
                                     );
-                                    const percentage = (
-                                        (context.parsed.y / total) *
-                                        100
-                                    ).toFixed(1);
-                                    return `${percentage}% of category`;
+
+                                    return [
+                                        `${tournament}`,
+                                        `${category}: ${percentage}%`,
+                                        `(${count} sponsors)`,
+                                    ];
                                 },
                             },
                         },
