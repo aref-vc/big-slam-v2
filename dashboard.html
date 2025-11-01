@@ -304,13 +304,13 @@
                         </div>
                     </div>
 
-                    <!-- Sponsorship Strategy Comparison -->
+                    <!-- Top Sponsor Categories -->
                     <div class="chart-container">
                         <h3 class="chart-title">
-                            SPONSORSHIP STRATEGY COMPARISON
+                            TOP SPONSOR CATEGORIES ACROSS ALL SLAMS
                         </h3>
                         <div class="chart-canvas">
-                            <canvas id="sponsorshipStrategy"></canvas>
+                            <canvas id="topSponsorCategories"></canvas>
                         </div>
                     </div>
                 </div>
@@ -975,100 +975,84 @@
                 },
             });
 
-            // Sponsorship Strategy Comparison (Radar Chart)
-            const sponsorshipStrategyCtx = document
-                .getElementById("sponsorshipStrategy")
+            // Top Sponsor Categories Across All Slams
+            const topCategoriesCtx = document
+                .getElementById("topSponsorCategories")
                 .getContext("2d");
-            new Chart(sponsorshipStrategyCtx, {
-                type: "radar",
+            new Chart(topCategoriesCtx, {
+                type: "bar",
                 data: {
                     labels: [
-                        "Total Revenue",
-                        "Avg Per Sponsor",
-                        "Exclusivity",
-                        "Heritage",
-                        "Growth Rate",
+                        "Banking & Financial",
+                        "Automotive",
+                        "Aviation",
+                        "Luxury Watches",
+                        "Technology",
+                        "Food & Beverage",
+                        "Fashion & Apparel",
+                        "Hospitality",
                     ],
                     datasets: [
                         {
-                            label: "Wimbledon",
-                            data: [95, 100, 100, 95, 60],
-                            backgroundColor: "rgba(235, 94, 40, 0.2)",
-                            borderColor: "#EB5E28",
-                            pointBackgroundColor: "#EB5E28",
-                            pointBorderColor: "#fff",
-                            pointHoverBackgroundColor: "#fff",
-                            pointHoverBorderColor: "#EB5E28",
-                        },
-                        {
-                            label: "US Open",
-                            data: [94, 68, 70, 80, 75],
-                            backgroundColor: "rgba(64, 61, 57, 0.2)",
-                            borderColor: "#403D39",
-                            pointBackgroundColor: "#403D39",
-                            pointBorderColor: "#fff",
-                            pointHoverBackgroundColor: "#fff",
-                            pointHoverBorderColor: "#403D39",
-                        },
-                        {
-                            label: "French Open",
-                            data: [60, 46, 75, 90, 70],
-                            backgroundColor: "rgba(204, 197, 185, 0.2)",
-                            borderColor: "#CCC5B9",
-                            pointBackgroundColor: "#CCC5B9",
-                            pointBorderColor: "#fff",
-                            pointHoverBackgroundColor: "#fff",
-                            pointHoverBorderColor: "#CCC5B9",
-                        },
-                        {
-                            label: "Australian Open",
-                            data: [45, 15, 30, 60, 100],
-                            backgroundColor: "rgba(37, 36, 34, 0.2)",
-                            borderColor: "#252422",
-                            pointBackgroundColor: "#252422",
-                            pointBorderColor: "#fff",
-                            pointHoverBackgroundColor: "#fff",
-                            pointHoverBorderColor: "#252422",
+                            data: [108, 48, 43, 37, 22, 85, 28, 15],
+                            backgroundColor: [
+                                "#EB5E28",
+                                "#EB5E28",
+                                "#EB5E28",
+                                "#403D39",
+                                "#403D39",
+                                "#403D39",
+                                "#CCC5B9",
+                                "#CCC5B9",
+                            ],
+                            borderRadius: 8,
+                            barThickness: 35,
                         },
                     ],
                 },
                 options: {
+                    indexAxis: "y",
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
                         legend: {
-                            position: "bottom",
-                            labels: {
-                                usePointStyle: true,
-                                pointStyle: "circle",
-                                padding: 15,
-                                font: {
-                                    family: "Berkeley Mono",
-                                    size: 11,
+                            display: false,
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    return `$${context.parsed.x}M in total sponsorship`;
                                 },
                             },
                         },
                     },
                     scales: {
-                        r: {
+                        x: {
                             beginAtZero: true,
-                            max: 100,
+                            grid: {
+                                color: "#F0EDE6",
+                                drawBorder: false,
+                            },
                             ticks: {
-                                stepSize: 20,
+                                callback: function (value) {
+                                    return `$${value}M`;
+                                },
                                 font: {
                                     family: "Berkeley Mono",
-                                    size: 10,
+                                    size: 11,
                                 },
                             },
-                            pointLabels: {
+                        },
+                        y: {
+                            grid: {
+                                display: false,
+                            },
+                            ticks: {
                                 font: {
                                     family: "Berkeley Mono",
                                     size: 11,
                                     weight: "bold",
                                 },
-                            },
-                            grid: {
-                                color: "#F0EDE6",
                             },
                         },
                     },
