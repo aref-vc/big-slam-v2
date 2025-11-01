@@ -467,16 +467,6 @@
                                     family: "Berkeley Mono",
                                     size: 11,
                                 },
-                                generateLabels: function (chart) {
-                                    const original =
-                                        Chart.defaults.plugins.legend.labels
-                                            .generateLabels;
-                                    const labels = original.call(this, chart);
-                                    labels.forEach((label) => {
-                                        label.pointStyle = "circle";
-                                    });
-                                    return labels;
-                                },
                             },
                         },
                         tooltip: {
