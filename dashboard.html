@@ -431,6 +431,22 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Section 8: Strategic Positioning Matrix -->
+            <section class="chart-section">
+                <h2 class="section-title">STRATEGIC POSITIONING MATRIX</h2>
+                <div class="charts-grid single-chart">
+                    <!-- Sponsors vs Revenue per Sponsor -->
+                    <div class="chart-container">
+                        <h3 class="chart-title">
+                            SPONSORS VS REVENUE PER SPONSOR
+                        </h3>
+                        <div class="chart-canvas">
+                            <canvas id="strategicPositioning"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
 
         <script>
@@ -1879,6 +1895,132 @@
                                     family: "Berkeley Mono",
                                     size: 11,
                                     weight: "bold",
+                                },
+                            },
+                        },
+                    },
+                },
+            });
+
+            // ========== SECTION 8: STRATEGIC POSITIONING MATRIX ==========
+
+            // Sponsors vs Revenue per Sponsor (Scatter Plot)
+            const strategicPositioningCtx = document
+                .getElementById("strategicPositioning")
+                .getContext("2d");
+            new Chart(strategicPositioningCtx, {
+                type: "scatter",
+                data: {
+                    datasets: [
+                        {
+                            label: "US Open",
+                            data: [{ x: 50, y: 2.2 }], // x: number of sponsors, y: revenue per sponsor ($M)
+                            backgroundColor: "#EB5E28",
+                            borderColor: "#EB5E28",
+                            pointRadius: 10,
+                            pointHoverRadius: 12,
+                        },
+                        {
+                            label: "Wimbledon",
+                            data: [{ x: 50, y: 3.4 }],
+                            backgroundColor: "#252422",
+                            borderColor: "#252422",
+                            pointRadius: 10,
+                            pointHoverRadius: 12,
+                        },
+                        {
+                            label: "French Open",
+                            data: [{ x: 50, y: 1.6 }],
+                            backgroundColor: "#403D39",
+                            borderColor: "#403D39",
+                            pointRadius: 10,
+                            pointHoverRadius: 12,
+                        },
+                        {
+                            label: "Australian Open",
+                            data: [{ x: 50, y: 1.4 }],
+                            backgroundColor: "#CCC5B9",
+                            borderColor: "#CCC5B9",
+                            pointRadius: 10,
+                            pointHoverRadius: 12,
+                        },
+                    ],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: "bottom",
+                            labels: {
+                                usePointStyle: true,
+                                pointStyle: "circle",
+                                padding: 15,
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                },
+                            },
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    const label = context.dataset.label;
+                                    const sponsors = context.parsed.x;
+                                    const revenue = context.parsed.y;
+                                    return [
+                                        `${label}`,
+                                        `Sponsors: ${sponsors}`,
+                                        `Revenue per Sponsor: $${revenue}M`,
+                                    ];
+                                },
+                            },
+                        },
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: "NUMBER OF SPONSORS",
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 12,
+                                    weight: "bold",
+                                },
+                            },
+                            grid: {
+                                color: "#F0EDE6",
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                },
+                            },
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: "REVENUE PER SPONSOR ($M)",
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 12,
+                                    weight: "bold",
+                                },
+                            },
+                            beginAtZero: true,
+                            grid: {
+                                color: "#F0EDE6",
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                callback: function (value) {
+                                    return `$${value}M`;
+                                },
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
                                 },
                             },
                         },
