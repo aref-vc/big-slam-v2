@@ -3218,12 +3218,18 @@
                         {
                             color: revenueColors.sponsorship,
                             height: sponsorshipPercent,
+                            label: Math.round(sponsorshipPercent) + "%",
                         },
                         {
                             color: revenueColors.broadcasting,
                             height: broadcastingPercent,
+                            label: Math.round(broadcastingPercent) + "%",
                         },
-                        { color: revenueColors.others, height: othersPercent },
+                        {
+                            color: revenueColors.others,
+                            height: othersPercent,
+                            label: Math.round(othersPercent) + "%",
+                        },
                     ];
 
                     let cumulativeHeight = 0;
@@ -3233,6 +3239,31 @@
                         const yPosition =
                             canvas.height - cumulativeHeight - layerHeight;
                         drawColoredSection(yPosition, layerHeight, layer.color);
+
+                        // Draw percentage label if layer is tall enough
+                        if (layerHeight > 25) {
+                            ctx.fillStyle = "white";
+                            ctx.font = "bold 16px 'Inter', sans-serif";
+                            ctx.textAlign = "center";
+                            ctx.textBaseline = "middle";
+
+                            // Add text shadow for better readability
+                            ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
+                            ctx.shadowBlur = 4;
+                            ctx.shadowOffsetX = 0;
+                            ctx.shadowOffsetY = 1;
+
+                            ctx.fillText(
+                                layer.label,
+                                canvas.width / 2,
+                                yPosition + layerHeight / 2,
+                            );
+
+                            // Reset shadow
+                            ctx.shadowColor = "transparent";
+                            ctx.shadowBlur = 0;
+                        }
+
                         cumulativeHeight += layerHeight;
                     });
                 };
