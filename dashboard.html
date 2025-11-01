@@ -229,9 +229,86 @@
                 background: var(--bg-cream);
             }
 
+            /* Tennis Ball Visualization Styles */
+            .tennis-ball-section {
+                background: var(--bg-white);
+                padding: 3rem 2rem;
+                border-radius: 12px;
+                border: 1px solid var(--border-light);
+            }
+
+            .tennis-ball-subtitle {
+                text-align: center;
+                font-size: 0.95rem;
+                color: var(--text-secondary);
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                margin-bottom: 3rem;
+            }
+
+            .tennis-balls-container {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2rem;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .tournament-stack {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .tournament-label {
+                font-size: 0.9rem;
+                font-weight: bold;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                color: var(--text-primary);
+                text-align: center;
+            }
+
+            .ball-stack {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+                min-height: 400px;
+                justify-content: flex-end;
+            }
+
+            .tennis-ball {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                position: relative;
+                overflow: hidden;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .tennis-ball img {
+                display: block;
+                border-radius: 50%;
+            }
+
+            .sponsor-count {
+                font-size: 0.85rem;
+                font-weight: bold;
+                color: var(--accent);
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                text-align: center;
+            }
+
             /* Responsive Design */
             @media (max-width: 1200px) {
                 .metrics-container {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                .tennis-balls-container {
                     grid-template-columns: repeat(2, 1fr);
                 }
             }
@@ -247,6 +324,14 @@
 
                 .header h1 {
                     font-size: 1.75rem;
+                }
+
+                .tennis-balls-container {
+                    grid-template-columns: 1fr;
+                }
+
+                .ball-stack {
+                    min-height: 300px;
                 }
             }
         </style>
@@ -622,6 +707,48 @@
                             </tr>
                         </tbody>
                     </table>
+                </div>
+            </section>
+
+            <!-- Section 10: Sponsor Volume Visualization -->
+            <section class="chart-section">
+                <h2 class="section-title">SPONSOR VOLUME COMPARISON</h2>
+                <div class="tennis-ball-section">
+                    <p class="tennis-ball-subtitle">
+                        Each ball represents 10 sponsors
+                    </p>
+                    <div class="tennis-balls-container">
+                        <!-- Australian Open -->
+                        <div class="tournament-stack">
+                            <h3 class="tournament-label">AUSTRALIAN OPEN</h3>
+                            <div
+                                class="ball-stack"
+                                id="australianOpenStack"
+                            ></div>
+                            <div class="sponsor-count">50+ SPONSORS</div>
+                        </div>
+
+                        <!-- US Open -->
+                        <div class="tournament-stack">
+                            <h3 class="tournament-label">US OPEN</h3>
+                            <div class="ball-stack" id="usOpenStack"></div>
+                            <div class="sponsor-count">25 SPONSORS</div>
+                        </div>
+
+                        <!-- French Open -->
+                        <div class="tournament-stack">
+                            <h3 class="tournament-label">FRENCH OPEN</h3>
+                            <div class="ball-stack" id="frenchOpenStack"></div>
+                            <div class="sponsor-count">22 SPONSORS</div>
+                        </div>
+
+                        <!-- Wimbledon -->
+                        <div class="tournament-stack">
+                            <h3 class="tournament-label">WIMBLEDON</h3>
+                            <div class="ball-stack" id="wimbledonStack"></div>
+                            <div class="sponsor-count">17 SPONSORS</div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
@@ -2738,6 +2865,123 @@
                         },
                     },
                 },
+            });
+
+            // ========== TENNIS BALL VISUALIZATION ==========
+
+            // Tournament data: [name, sponsors, color]
+            const tournaments = [
+                {
+                    id: "australianOpenStack",
+                    sponsors: 50,
+                    color: "#EB5E28",
+                    name: "Australian Open",
+                },
+                {
+                    id: "usOpenStack",
+                    sponsors: 25,
+                    color: "#403D39",
+                    name: "US Open",
+                },
+                {
+                    id: "frenchOpenStack",
+                    sponsors: 22,
+                    color: "#CCC5B9",
+                    name: "French Open",
+                },
+                {
+                    id: "wimbledonStack",
+                    sponsors: 17,
+                    color: "#252422",
+                    name: "Wimbledon",
+                },
+            ];
+
+            // Helper function to convert hex color to CSS filter for realistic coloring
+            function getColorFilter(hexColor) {
+                // Mapping colors to appropriate filter values
+                const colorMap = {
+                    "#EB5E28":
+                        "brightness(0) saturate(100%) invert(36%) sepia(86%) saturate(1668%) hue-rotate(356deg) brightness(98%) contrast(91%)", // Fire Orange
+                    "#403D39":
+                        "brightness(0) saturate(100%) invert(13%) sepia(5%) saturate(1456%) hue-rotate(336deg) brightness(95%) contrast(92%)", // Charcoal
+                    "#CCC5B9":
+                        "brightness(0) saturate(100%) invert(85%) sepia(8%) saturate(345%) hue-rotate(359deg) brightness(92%) contrast(88%)", // Warm Gray
+                    "#252422":
+                        "brightness(0) saturate(100%) invert(13%) sepia(5%) saturate(1456%) hue-rotate(336deg) brightness(80%) contrast(92%)", // Dark
+                };
+                return (
+                    colorMap[hexColor] ||
+                    "brightness(0) saturate(100%) invert(50%)"
+                );
+            }
+
+            // Function to create a tennis ball with fill percentage (using clip-path like F1 cars)
+            function createTennisBall(color, fillPercentage) {
+                const ballDiv = document.createElement("div");
+                ballDiv.className = "tennis-ball";
+
+                if (fillPercentage > 0 && fillPercentage < 1) {
+                    // Partial fill - use two overlapping images with clip-path
+                    const coloredImg = document.createElement("img");
+                    coloredImg.src = "Tennis Ball.png";
+                    coloredImg.style.position = "absolute";
+                    coloredImg.style.width = "100%";
+                    coloredImg.style.height = "100%";
+                    coloredImg.style.filter = getColorFilter(color);
+                    // Clip from bottom up - inset(top right bottom left)
+                    const topInset = (1 - fillPercentage) * 100;
+                    coloredImg.style.clipPath = `inset(${topInset}% 0 0 0)`;
+
+                    const grayImg = document.createElement("img");
+                    grayImg.src = "Tennis Ball.png";
+                    grayImg.style.width = "100%";
+                    grayImg.style.height = "100%";
+                    grayImg.style.opacity = "0.3";
+
+                    ballDiv.appendChild(coloredImg);
+                    ballDiv.appendChild(grayImg);
+                } else if (fillPercentage >= 1) {
+                    // Fully filled - single colored image
+                    const img = document.createElement("img");
+                    img.src = "Tennis Ball.png";
+                    img.style.width = "100%";
+                    img.style.height = "100%";
+                    img.style.filter = getColorFilter(color);
+                    ballDiv.appendChild(img);
+                } else {
+                    // Empty - gray image
+                    const img = document.createElement("img");
+                    img.src = "Tennis Ball.png";
+                    img.style.width = "100%";
+                    img.style.height = "100%";
+                    img.style.opacity = "0.3";
+                    ballDiv.appendChild(img);
+                }
+
+                return ballDiv;
+            }
+
+            // Generate balls for each tournament
+            tournaments.forEach((tournament) => {
+                const container = document.getElementById(tournament.id);
+                const fullBalls = Math.floor(tournament.sponsors / 10);
+                const remainder = tournament.sponsors % 10;
+                const partialFill = remainder / 10;
+
+                // Create full balls
+                for (let i = 0; i < fullBalls; i++) {
+                    container.appendChild(
+                        createTennisBall(tournament.color, 1.0),
+                    );
+                }
+
+                // Create partial ball if there's a remainder
+                if (remainder > 0) {
+                    container.appendChild(
+                        createTennisBall(tournament.color, partialFill),
+                    );
+                }
             });
         </script>
     </body>
