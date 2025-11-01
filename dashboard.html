@@ -844,9 +844,9 @@
                         },
                     },
                     scales: {
-                        x: {
+                        y: {
                             beginAtZero: true,
-                            max: 80,
+                            max: 600,
                             grid: {
                                 color: "#F0EDE6",
                                 drawBorder: false,
@@ -861,7 +861,7 @@
                                 },
                             },
                         },
-                        y: {
+                        x: {
                             grid: {
                                 display: false,
                             },
@@ -871,6 +871,7 @@
                                     size: 11,
                                     weight: "bold",
                                 },
+                                color: "#252422",
                             },
                         },
                     },
@@ -1019,7 +1020,18 @@
                     maintainAspectRatio: false,
                     plugins: {
                         legend: {
-                            display: false,
+                            display: true,
+                            position: "bottom",
+                            labels: {
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 10,
+                                },
+                                color: "#252422",
+                                padding: 15,
+                                boxWidth: 15,
+                                boxHeight: 15,
+                            },
                         },
                         tooltip: {
                             callbacks: {
@@ -1041,7 +1053,7 @@
                         },
                     },
                     scales: {
-                        y: {
+                        x: {
                             beginAtZero: true,
                             stacked: true,
                             grid: {
@@ -1058,7 +1070,7 @@
                                 },
                             },
                         },
-                        x: {
+                        y: {
                             stacked: true,
                             grid: {
                                 display: false,
