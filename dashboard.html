@@ -3174,7 +3174,7 @@
                     tournamentKey + "Player",
                 );
 
-                // Create canvas to render the masked visualization
+                // Create canvas for rendering
                 const canvas = document.createElement("canvas");
                 canvas.width = 200;
                 canvas.height = 280;
@@ -3183,26 +3183,36 @@
                 wrapper.appendChild(canvas);
 
                 const ctx = canvas.getContext("2d");
+                const img = new Image();
+                img.src = "Tennis Player.jpg";
 
-                // Load the player silhouette image
-                const playerImg = new Image();
-                playerImg.src = "Tennis Player.jpg";
+                img.onload = function () {
+                    // Helper function to draw colored section using temp canvas
+                    function drawColoredSection(y, height, color) {
+                        const tempCanvas = document.createElement("canvas");
+                        tempCanvas.width = canvas.width;
+                        tempCanvas.height = canvas.height;
+                        const tempCtx = tempCanvas.getContext("2d");
 
-                playerImg.onload = function () {
-                    // First, draw the player image to extract its pixel data
-                    ctx.drawImage(playerImg, 0, 0, canvas.width, canvas.height);
-                    const imageData = ctx.getImageData(
-                        0,
-                        0,
-                        canvas.width,
-                        canvas.height,
-                    );
-                    const pixels = imageData.data;
+                        // Fill with color
+                        tempCtx.fillStyle = color;
+                        tempCtx.fillRect(0, y, canvas.width, height);
 
-                    // Clear canvas
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        // Apply player mask
+                        tempCtx.globalCompositeOperation = "destination-in";
+                        tempCtx.drawImage(
+                            img,
+                            0,
+                            0,
+                            canvas.width,
+                            canvas.height,
+                        );
 
-                    // Draw the stacked bars
+                        // Draw to main canvas
+                        ctx.drawImage(tempCanvas, 0, 0);
+                    }
+
+                    // Draw layers from bottom to top
                     const layers = [
                         {
                             color: revenueColors.sponsorship,
@@ -3217,41 +3227,13 @@
 
                     let cumulativeHeight = 0;
                     layers.forEach((layer) => {
-                        ctx.fillStyle = layer.color;
-                        const barHeight = (layer.height / 100) * canvas.height;
+                        const layerHeight =
+                            (layer.height / 100) * canvas.height;
                         const yPosition =
-                            canvas.height - cumulativeHeight - barHeight;
-                        ctx.fillRect(0, yPosition, canvas.width, barHeight);
-                        cumulativeHeight += barHeight;
+                            canvas.height - cumulativeHeight - layerHeight;
+                        drawColoredSection(yPosition, layerHeight, layer.color);
+                        cumulativeHeight += layerHeight;
                     });
-
-                    // Get the colored bars pixel data
-                    const barsData = ctx.getImageData(
-                        0,
-                        0,
-                        canvas.width,
-                        canvas.height,
-                    );
-
-                    // Apply player image as alpha mask (use darker areas as the silhouette)
-                    for (let i = 0; i < pixels.length; i += 4) {
-                        // Calculate luminance from player image
-                        const luminance =
-                            (pixels[i] + pixels[i + 1] + pixels[i + 2]) / 3;
-                        // Invert: darker pixels = more visible (create silhouette effect)
-                        const alpha = 255 - luminance;
-                        // Apply to bars
-                        barsData.data[i + 3] =
-                            (barsData.data[i + 3] * alpha) / 255;
-                    }
-
-                    ctx.putImageData(barsData, 0, 0);
-                };
-
-                playerImg.onerror = function () {
-                    console.error(
-                        "Failed to load Tennis Player.jpg for " + tournamentKey,
-                    );
                 };
             }
 
