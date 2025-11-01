@@ -328,9 +328,11 @@
                         </div>
                     </div>
 
-                    <!-- Prize Money Distribution -->
+                    <!-- Total Prize Money by Tournament -->
                     <div class="chart-container">
-                        <h3 class="chart-title">PRIZE MONEY DISTRIBUTION</h3>
+                        <h3 class="chart-title">
+                            TOTAL PRIZE MONEY BY TOURNAMENT
+                        </h3>
                         <div class="chart-canvas">
                             <canvas id="prizeMoney"></canvas>
                         </div>
@@ -501,8 +503,9 @@
                         },
                     },
                     scales: {
-                        y: {
+                        x: {
                             beginAtZero: true,
+                            max: 80,
                             grid: {
                                 color: "#F0EDE6",
                                 drawBorder: false,
@@ -517,7 +520,7 @@
                                 },
                             },
                         },
-                        x: {
+                        y: {
                             grid: {
                                 display: false,
                             },
@@ -669,30 +672,28 @@
                     ],
                 },
                 options: {
+                    indexAxis: "y", // Make it horizontal
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
                         legend: {
-                            position: "bottom",
-                            labels: {
-                                usePointStyle: true,
-                                pointStyle: "circle",
-                                padding: 15,
-                                font: {
-                                    family: "Berkeley Mono",
-                                    size: 11,
-                                },
-                            },
+                            display: false,
                         },
                         tooltip: {
                             callbacks: {
                                 label: function (context) {
-                                    return (
-                                        context.dataset.label +
-                                        ": $" +
-                                        context.parsed.y +
-                                        "M"
-                                    );
+                                    const championPrize =
+                                        context.dataset.championPrizes[
+                                            context.dataIndex
+                                        ];
+                                    const percentage = (
+                                        (championPrize / context.parsed.x) *
+                                        100
+                                    ).toFixed(1);
+                                    return [
+                                        `Total Prize Pool: $${context.parsed.x}M`,
+                                        `Champion Prize: $${championPrize}M (${percentage}%)`,
+                                    ];
                                 },
                             },
                         },
@@ -1182,7 +1183,7 @@
                 },
             });
 
-            // Prize Money Distribution (sorted highest to lowest)
+            // Total Prize Money by Tournament (horizontal bar for better readability)
             const prizeMoneyCtx = document
                 .getElementById("prizeMoney")
                 .getContext("2d");
@@ -1197,18 +1198,11 @@
                     ],
                     datasets: [
                         {
-                            label: "Total Prize Pool",
                             data: [75, 64, 64, 61],
                             backgroundColor: "#EB5E28",
                             borderRadius: 8,
-                            barThickness: 30,
-                        },
-                        {
-                            label: "Champion Prize",
-                            data: [3.6, 1.45, 3.4, 2.76],
-                            backgroundColor: "#403D39",
-                            borderRadius: 8,
-                            barThickness: 30,
+                            barThickness: 40,
+                            championPrizes: [3.6, 1.45, 3.4, 2.76], // Store champion prizes for reference
                         },
                     ],
                 },
