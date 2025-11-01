@@ -338,10 +338,17 @@
                                     ctx.textBaseline = "middle";
 
                                     const data = dataset.data[index];
-                                    const label =
-                                        typeof data === "number"
-                                            ? `$${data}M`
-                                            : data;
+                                    // Check if this is the Number of Sponsors chart
+                                    const chartId = chart.canvas.id;
+                                    let label;
+                                    if (chartId === "numberOfSponsors") {
+                                        label = data.toString();
+                                    } else {
+                                        label =
+                                            typeof data === "number"
+                                                ? `$${data}M`
+                                                : data;
+                                    }
                                     const x = element.x;
                                     const y = element.y + 15;
 
