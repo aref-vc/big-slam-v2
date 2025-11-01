@@ -335,10 +335,10 @@
             }
 
             .player-wrapper {
-                width: 176px; /* Matches PNG aspect ratio (1206/1920 * 280 = 176) */
+                width: auto; /* Allow space for labels */
                 height: 280px;
                 position: relative;
-                overflow: hidden;
+                overflow: visible; /* Show labels outside canvas */
             }
 
             .player-wrapper img {
@@ -3174,14 +3174,31 @@
                     tournamentKey + "Player",
                 );
 
+                // Create container for canvas and labels
+                const container = document.createElement("div");
+                container.style.position = "relative";
+                container.style.display = "flex";
+                container.style.alignItems = "center";
+                container.style.gap = "1rem";
+                wrapper.appendChild(container);
+
                 // Create canvas for rendering
                 // Match the aspect ratio of the PNG (1206x1920 = 0.628 ratio)
                 const canvas = document.createElement("canvas");
                 canvas.width = 176; // Adjusted to match PNG aspect ratio
                 canvas.height = 280;
-                canvas.style.width = "100%";
-                canvas.style.height = "100%";
-                wrapper.appendChild(canvas);
+                canvas.style.width = "176px";
+                canvas.style.height = "280px";
+                canvas.style.flexShrink = "0";
+                container.appendChild(canvas);
+
+                // Create labels container
+                const labelsContainer = document.createElement("div");
+                labelsContainer.style.display = "flex";
+                labelsContainer.style.flexDirection = "column";
+                labelsContainer.style.height = "280px";
+                labelsContainer.style.position = "relative";
+                container.appendChild(labelsContainer);
 
                 const ctx = canvas.getContext("2d");
                 const img = new Image();
@@ -3240,28 +3257,22 @@
                             canvas.height - cumulativeHeight - layerHeight;
                         drawColoredSection(yPosition, layerHeight, layer.color);
 
-                        // Draw percentage label if layer is tall enough
-                        if (layerHeight > 25) {
-                            ctx.fillStyle = "white";
-                            ctx.font = "bold 16px 'Inter', sans-serif";
-                            ctx.textAlign = "center";
-                            ctx.textBaseline = "middle";
-
-                            // Add text shadow for better readability
-                            ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
-                            ctx.shadowBlur = 4;
-                            ctx.shadowOffsetX = 0;
-                            ctx.shadowOffsetY = 1;
-
-                            ctx.fillText(
-                                layer.label,
-                                canvas.width / 2,
-                                yPosition + layerHeight / 2,
-                            );
-
-                            // Reset shadow
-                            ctx.shadowColor = "transparent";
-                            ctx.shadowBlur = 0;
+                        // Create HTML label positioned to the right
+                        if (layerHeight > 20) {
+                            const label = document.createElement("div");
+                            label.textContent = layer.label;
+                            label.style.position = "absolute";
+                            label.style.top =
+                                yPosition + layerHeight / 2 - 10 + "px";
+                            label.style.left = "0";
+                            label.style.fontFamily =
+                                "'Berkeley Mono', monospace";
+                            label.style.fontSize = "0.875rem";
+                            label.style.fontWeight = "600";
+                            label.style.color = "#252422";
+                            label.style.textAlign = "left";
+                            label.style.whiteSpace = "nowrap";
+                            labelsContainer.appendChild(label);
                         }
 
                         cumulativeHeight += layerHeight;
