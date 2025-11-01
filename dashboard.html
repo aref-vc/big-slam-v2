@@ -415,6 +415,22 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Section 7: Partnership Longevity -->
+            <section class="chart-section">
+                <h2 class="section-title">PARTNERSHIP LONGEVITY</h2>
+                <div class="charts-grid single-chart">
+                    <!-- Longest-Running Sponsorship Partnerships -->
+                    <div class="chart-container">
+                        <h3 class="chart-title">
+                            LONGEST-RUNNING SPONSORSHIP PARTNERSHIPS
+                        </h3>
+                        <div class="chart-canvas">
+                            <canvas id="partnershipLongevity"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
 
         <script>
@@ -1769,6 +1785,84 @@
                             ticks: {
                                 callback: function (value) {
                                     return `$${value}M`;
+                                },
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                },
+                            },
+                        },
+                        y: {
+                            grid: {
+                                display: false,
+                            },
+                            ticks: {
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                    weight: "bold",
+                                },
+                            },
+                        },
+                    },
+                },
+            });
+
+            // ========== SECTION 7: PARTNERSHIP LONGEVITY ==========
+
+            // Longest-Running Sponsorship Partnerships (horizontal bar)
+            const partnershipLongevityCtx = document
+                .getElementById("partnershipLongevity")
+                .getContext("2d");
+            new Chart(partnershipLongevityCtx, {
+                type: "bar",
+                data: {
+                    labels: [
+                        "Slazenger & Wimbledon",
+                        "BNP Paribas & French Open",
+                        "Rolex & Wimbledon",
+                        "IBM & Wimbledon",
+                        "KIA & Australian Open",
+                        "Evian & Wimbledon",
+                        "JP Morgan & US Open",
+                        "Emirates & US Open",
+                    ],
+                    datasets: [
+                        {
+                            data: [122, 51, 46, 35, 22, 17, 14, 12], // Years of partnership (sorted)
+                            backgroundColor: "#403D39",
+                            borderRadius: 8,
+                            barThickness: 40,
+                        },
+                    ],
+                },
+                options: {
+                    indexAxis: "y",
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    const years = context.parsed.x;
+                                    return `${years} year${years !== 1 ? "s" : ""} of partnership`;
+                                },
+                            },
+                        },
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            grid: {
+                                color: "#F0EDE6",
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                callback: function (value) {
+                                    return `${value} years`;
                                 },
                                 font: {
                                     family: "Berkeley Mono",
