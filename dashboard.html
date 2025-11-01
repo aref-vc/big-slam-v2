@@ -3174,73 +3174,81 @@
                     tournamentKey + "Player",
                 );
 
-                // Create three layers from bottom to top
-                const layers = [
-                    {
-                        color: revenueColors.sponsorship,
-                        height: sponsorshipPercent,
-                    },
-                    {
-                        color: revenueColors.broadcasting,
-                        height: broadcastingPercent,
-                    },
-                    { color: revenueColors.others, height: othersPercent },
-                ];
+                // Create canvas to render the masked visualization
+                const canvas = document.createElement("canvas");
+                canvas.width = 200;
+                canvas.height = 280;
+                canvas.style.width = "100%";
+                canvas.style.height = "100%";
+                wrapper.appendChild(canvas);
 
-                // Load image first to get proper dimensions
-                const baseImg = new Image();
-                baseImg.src = "Tennis Player.jpg";
+                const ctx = canvas.getContext("2d");
 
-                baseImg.onload = function () {
-                    // First, add the base transparent/white image for unfilled portions
-                    const basePlayer = document.createElement("img");
-                    basePlayer.src = "Tennis Player.jpg";
-                    basePlayer.style.position = "absolute";
-                    basePlayer.style.bottom = "0";
-                    basePlayer.style.left = "0";
-                    basePlayer.style.width = "100%";
-                    basePlayer.style.height = "100%";
-                    basePlayer.style.objectFit = "cover";
-                    basePlayer.style.objectPosition = "center center";
-                    basePlayer.style.opacity = "0.15";
-                    wrapper.appendChild(basePlayer);
+                // Load the player silhouette image
+                const playerImg = new Image();
+                playerImg.src = "Tennis Player.jpg";
+
+                playerImg.onload = function () {
+                    // First, draw the player image to extract its pixel data
+                    ctx.drawImage(playerImg, 0, 0, canvas.width, canvas.height);
+                    const imageData = ctx.getImageData(
+                        0,
+                        0,
+                        canvas.width,
+                        canvas.height,
+                    );
+                    const pixels = imageData.data;
+
+                    // Clear canvas
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                    // Draw the stacked bars
+                    const layers = [
+                        {
+                            color: revenueColors.sponsorship,
+                            height: sponsorshipPercent,
+                        },
+                        {
+                            color: revenueColors.broadcasting,
+                            height: broadcastingPercent,
+                        },
+                        { color: revenueColors.others, height: othersPercent },
+                    ];
 
                     let cumulativeHeight = 0;
-                    layers.forEach((layer, index) => {
-                        const img = document.createElement("img");
-                        img.src = "Tennis Player.jpg";
-                        img.style.position = "absolute";
-                        img.style.bottom = "0";
-                        img.style.left = "0";
-                        img.style.width = "100%";
-                        img.style.height = "100%";
-                        img.style.objectFit = "cover";
-                        img.style.objectPosition = "center center";
-
-                        // Apply color filter based on the revenue source
-                        // Use a simpler colorization that preserves the image texture
-                        if (layer.color === revenueColors.sponsorship) {
-                            // Fire Orange
-                            img.style.filter = `sepia(100%) saturate(300%) brightness(0.9) hue-rotate(340deg)`;
-                        } else if (layer.color === revenueColors.broadcasting) {
-                            // Charcoal
-                            img.style.filter = `grayscale(100%) brightness(0.3) contrast(1.2)`;
-                        } else {
-                            // Warm Gray
-                            img.style.filter = `grayscale(100%) brightness(0.8) contrast(0.9)`;
-                        }
-
-                        // Clip to show only the portion of this revenue source (from bottom up)
-                        const topClip = 100 - (cumulativeHeight + layer.height);
-                        const bottomClip = cumulativeHeight;
-                        img.style.clipPath = `inset(${topClip}% 0 ${bottomClip}% 0)`;
-
-                        wrapper.appendChild(img);
-                        cumulativeHeight += layer.height;
+                    layers.forEach((layer) => {
+                        ctx.fillStyle = layer.color;
+                        const barHeight = (layer.height / 100) * canvas.height;
+                        const yPosition =
+                            canvas.height - cumulativeHeight - barHeight;
+                        ctx.fillRect(0, yPosition, canvas.width, barHeight);
+                        cumulativeHeight += barHeight;
                     });
+
+                    // Get the colored bars pixel data
+                    const barsData = ctx.getImageData(
+                        0,
+                        0,
+                        canvas.width,
+                        canvas.height,
+                    );
+
+                    // Apply player image as alpha mask (use darker areas as the silhouette)
+                    for (let i = 0; i < pixels.length; i += 4) {
+                        // Calculate luminance from player image
+                        const luminance =
+                            (pixels[i] + pixels[i + 1] + pixels[i + 2]) / 3;
+                        // Invert: darker pixels = more visible (create silhouette effect)
+                        const alpha = 255 - luminance;
+                        // Apply to bars
+                        barsData.data[i + 3] =
+                            (barsData.data[i + 3] * alpha) / 255;
+                    }
+
+                    ctx.putImageData(barsData, 0, 0);
                 };
 
-                baseImg.onerror = function () {
+                playerImg.onerror = function () {
                     console.error(
                         "Failed to load Tennis Player.jpg for " + tournamentKey,
                     );
