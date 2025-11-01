@@ -152,6 +152,12 @@
                 gap: 2rem;
             }
 
+            .charts-grid.single-chart {
+                grid-template-columns: 1fr;
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
             .chart-container {
                 background: var(--bg-white);
                 padding: 2rem;
@@ -377,6 +383,22 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Section 5: Cross-Tournament Sponsors -->
+            <section class="chart-section">
+                <h2 class="section-title">CROSS-TOURNAMENT SPONSORS</h2>
+                <div class="charts-grid single-chart">
+                    <!-- Sponsors Present at Multiple Grand Slams -->
+                    <div class="chart-container">
+                        <h3 class="chart-title">
+                            SPONSORS PRESENT AT MULTIPLE GRAND SLAMS
+                        </h3>
+                        <div class="chart-canvas">
+                            <canvas id="crossTournamentSponsors"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
 
         <script>
@@ -426,6 +448,10 @@
                                         chartId === "attendancePerSponsor"
                                     ) {
                                         label = `${(data / 1000).toFixed(0)}K`;
+                                    } else if (
+                                        chartId === "crossTournamentSponsors"
+                                    ) {
+                                        label = data.toString(); // Just show the number
                                     } else {
                                         label =
                                             typeof data === "number"
@@ -1573,6 +1599,91 @@
                             },
                         },
                         x: {
+                            grid: {
+                                display: false,
+                            },
+                            ticks: {
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                    weight: "bold",
+                                },
+                            },
+                        },
+                    },
+                },
+            });
+
+            // ========== SECTION 5: CROSS-TOURNAMENT SPONSORS ==========
+
+            // Sponsors Present at Multiple Grand Slams (horizontal bar for better readability)
+            const crossTournamentSponsorsCtx = document
+                .getElementById("crossTournamentSponsors")
+                .getContext("2d");
+            new Chart(crossTournamentSponsorsCtx, {
+                type: "bar",
+                data: {
+                    labels: [
+                        "Rolex",
+                        "IBM",
+                        "Emirates",
+                        "Evian",
+                        "Lavazza",
+                        "Ralph Lauren",
+                        "American Express",
+                        "JP Morgan",
+                    ],
+                    datasets: [
+                        {
+                            data: [4, 3, 3, 2, 2, 2, 2, 2], // Number of tournaments they sponsor
+                            backgroundColor: "#EB5E28",
+                            borderRadius: 8,
+                            barThickness: 40,
+                        },
+                    ],
+                },
+                options: {
+                    indexAxis: "y",
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    const tournaments = context.parsed.x;
+                                    return `Present at ${tournaments} Grand Slam${tournaments > 1 ? "s" : ""}`;
+                                },
+                            },
+                        },
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 4,
+                            grid: {
+                                color: "#F0EDE6",
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                stepSize: 1,
+                                callback: function (value) {
+                                    return (
+                                        value +
+                                        (value === 1
+                                            ? " Tournament"
+                                            : " Tournaments")
+                                    );
+                                },
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                },
+                            },
+                        },
+                        y: {
                             grid: {
                                 display: false,
                             },
