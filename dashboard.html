@@ -273,6 +273,48 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Section 2: Sponsorship Analysis -->
+            <section class="chart-section">
+                <h2 class="section-title">SPONSORSHIP ANALYSIS</h2>
+                <div class="charts-grid">
+                    <!-- Sponsorship Revenue by Tournament -->
+                    <div class="chart-container">
+                        <h3 class="chart-title">
+                            SPONSORSHIP REVENUE BY TOURNAMENT
+                        </h3>
+                        <div class="chart-canvas">
+                            <canvas id="sponsorshipRevenue"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Number of Sponsors -->
+                    <div class="chart-container">
+                        <h3 class="chart-title">NUMBER OF SPONSORS</h3>
+                        <div class="chart-canvas">
+                            <canvas id="numberOfSponsors"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Average Revenue per Sponsor -->
+                    <div class="chart-container">
+                        <h3 class="chart-title">AVERAGE REVENUE PER SPONSOR</h3>
+                        <div class="chart-canvas">
+                            <canvas id="avgRevenuePerSponsor"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Sponsorship Strategy Comparison -->
+                    <div class="chart-container">
+                        <h3 class="chart-title">
+                            SPONSORSHIP STRATEGY COMPARISON
+                        </h3>
+                        <div class="chart-canvas">
+                            <canvas id="sponsorshipStrategy"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
 
         <script>
@@ -698,6 +740,316 @@
                                     size: 11,
                                     weight: "bold",
                                 },
+                            },
+                        },
+                    },
+                },
+            });
+
+            // ========== SECTION 2: SPONSORSHIP ANALYSIS ==========
+
+            // Sponsorship Revenue by Tournament (sorted highest to lowest)
+            const sponsorshipRevenueCtx = document
+                .getElementById("sponsorshipRevenue")
+                .getContext("2d");
+            new Chart(sponsorshipRevenueCtx, {
+                type: "bar",
+                data: {
+                    labels: [
+                        "Wimbledon",
+                        "US Open",
+                        "French Open",
+                        "Australian Open",
+                    ],
+                    datasets: [
+                        {
+                            data: [125, 124, 74, 56],
+                            backgroundColor: "#EB5E28",
+                            borderRadius: 8,
+                            barThickness: 60,
+                        },
+                    ],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    return `$${context.parsed.y}M`;
+                                },
+                            },
+                        },
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: "#F0EDE6",
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                callback: function (value) {
+                                    return `$${value}M`;
+                                },
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                },
+                            },
+                        },
+                        x: {
+                            grid: {
+                                display: false,
+                            },
+                            ticks: {
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                    weight: "bold",
+                                },
+                            },
+                        },
+                    },
+                },
+            });
+
+            // Number of Sponsors (sorted highest to lowest)
+            const numberOfSponsorsCtx = document
+                .getElementById("numberOfSponsors")
+                .getContext("2d");
+            new Chart(numberOfSponsorsCtx, {
+                type: "bar",
+                data: {
+                    labels: [
+                        "Australian Open",
+                        "US Open",
+                        "French Open",
+                        "Wimbledon",
+                    ],
+                    datasets: [
+                        {
+                            data: [50, 25, 22, 17],
+                            backgroundColor: "#403D39",
+                            borderRadius: 8,
+                            barThickness: 60,
+                        },
+                    ],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    return `${context.parsed.y} sponsors`;
+                                },
+                            },
+                        },
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: "#F0EDE6",
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                },
+                            },
+                        },
+                        x: {
+                            grid: {
+                                display: false,
+                            },
+                            ticks: {
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                    weight: "bold",
+                                },
+                            },
+                        },
+                    },
+                },
+            });
+
+            // Average Revenue per Sponsor (sorted highest to lowest)
+            const avgRevenuePerSponsorCtx = document
+                .getElementById("avgRevenuePerSponsor")
+                .getContext("2d");
+            new Chart(avgRevenuePerSponsorCtx, {
+                type: "bar",
+                data: {
+                    labels: [
+                        "Wimbledon",
+                        "US Open",
+                        "French Open",
+                        "Australian Open",
+                    ],
+                    datasets: [
+                        {
+                            data: [7.31, 4.96, 3.36, 1.12],
+                            backgroundColor: "#CCC5B9",
+                            borderRadius: 8,
+                            barThickness: 60,
+                        },
+                    ],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    return `$${context.parsed.y}M per sponsor`;
+                                },
+                            },
+                        },
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 8,
+                            grid: {
+                                color: "#F0EDE6",
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                callback: function (value) {
+                                    return `$${value}M`;
+                                },
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                },
+                            },
+                        },
+                        x: {
+                            grid: {
+                                display: false,
+                            },
+                            ticks: {
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                    weight: "bold",
+                                },
+                            },
+                        },
+                    },
+                },
+            });
+
+            // Sponsorship Strategy Comparison (Radar Chart)
+            const sponsorshipStrategyCtx = document
+                .getElementById("sponsorshipStrategy")
+                .getContext("2d");
+            new Chart(sponsorshipStrategyCtx, {
+                type: "radar",
+                data: {
+                    labels: [
+                        "Total Revenue",
+                        "Avg Per Sponsor",
+                        "Exclusivity",
+                        "Heritage",
+                        "Growth Rate",
+                    ],
+                    datasets: [
+                        {
+                            label: "Wimbledon",
+                            data: [95, 100, 100, 95, 60],
+                            backgroundColor: "rgba(235, 94, 40, 0.2)",
+                            borderColor: "#EB5E28",
+                            pointBackgroundColor: "#EB5E28",
+                            pointBorderColor: "#fff",
+                            pointHoverBackgroundColor: "#fff",
+                            pointHoverBorderColor: "#EB5E28",
+                        },
+                        {
+                            label: "US Open",
+                            data: [94, 68, 70, 80, 75],
+                            backgroundColor: "rgba(64, 61, 57, 0.2)",
+                            borderColor: "#403D39",
+                            pointBackgroundColor: "#403D39",
+                            pointBorderColor: "#fff",
+                            pointHoverBackgroundColor: "#fff",
+                            pointHoverBorderColor: "#403D39",
+                        },
+                        {
+                            label: "French Open",
+                            data: [60, 46, 75, 90, 70],
+                            backgroundColor: "rgba(204, 197, 185, 0.2)",
+                            borderColor: "#CCC5B9",
+                            pointBackgroundColor: "#CCC5B9",
+                            pointBorderColor: "#fff",
+                            pointHoverBackgroundColor: "#fff",
+                            pointHoverBorderColor: "#CCC5B9",
+                        },
+                        {
+                            label: "Australian Open",
+                            data: [45, 15, 30, 60, 100],
+                            backgroundColor: "rgba(37, 36, 34, 0.2)",
+                            borderColor: "#252422",
+                            pointBackgroundColor: "#252422",
+                            pointBorderColor: "#fff",
+                            pointHoverBackgroundColor: "#fff",
+                            pointHoverBorderColor: "#252422",
+                        },
+                    ],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: "bottom",
+                            labels: {
+                                usePointStyle: true,
+                                pointStyle: "circle",
+                                padding: 15,
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                },
+                            },
+                        },
+                    },
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                stepSize: 20,
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 10,
+                                },
+                            },
+                            pointLabels: {
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                    weight: "bold",
+                                },
+                            },
+                            grid: {
+                                color: "#F0EDE6",
                             },
                         },
                     },
