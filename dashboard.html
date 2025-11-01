@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIG 4 GRAND SLAM TENNIS - Comprehensive Sponsorship Benchmark Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        :root {
+            /* Midnight Flame - Dark & dramatic with fire accent */
+            --font-family: 'Berkeley Mono', monospace;
+
+            /* Backgrounds */
+            --bg-main: #FFFCF2;
+            --bg-main-rgb: 255, 252, 242;
+            --bg-white: #FDF9ED;
+            --bg-white-rgb: 253, 249, 237;
+            --bg-accent: #F5F3EE;
+            --bg-accent-rgb: 245, 243, 238;
+
+            /* Text Colors */
+            --text-primary: #252422;
+            --text-primary-rgb: 37, 36, 34;
+            --text-secondary: #403D39;
+            --text-secondary-rgb: 64, 61, 57;
+            --text-light: #CCC5B9;
+            --text-light-rgb: 204, 197, 185;
+
+            /* UI Colors */
+            --accent: #EB5E28;
+            --accent-rgb: 235, 94, 40;
+            --dark: #403D39;
+            --dark-rgb: 64, 61, 57;
+            --gray: #CCC5B9;
+            --gray-rgb: 204, 197, 185;
+            --black: #252422;
+            --black-rgb: 37, 36, 34;
+
+            /* Borders */
+            --border: #DDD7CC;
+            --border-rgb: 221, 215, 204;
+            --border-light: #F0EDE6;
+            --border-light-rgb: 240, 237, 230;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background: var(--bg-main);
+            color: var(--text-primary);
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            letter-spacing: 0.05em;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .header .subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.02em;
+        }
+
+        /* Metrics Cards Section */
+        .metrics-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .metric-card {
+            background: var(--bg-white);
+            padding: 1.75rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(37, 36, 34, 0.08);
+        }
+
+        .metric-card .label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+
+        .metric-card .value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent);
+            letter-spacing: -0.02em;
+        }
+
+        .metric-card .detail {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        /* Chart Sections */
+        .chart-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        /* 2x2 Grid Layout for Charts */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .chart-container {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+            min-height: 400px;
+            position: relative;
+        }
+
+        .chart-title {
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .chart-canvas {
+            position: relative;
+            height: 350px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .metrics-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .metrics-container {
+                grid-template-columns: 1fr;
+            }
+
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header Section -->
+        <header class="header">
+            <h1>BIG 4 GRAND SLAM TENNIS</h1>
+            <p class="subtitle">Comprehensive Sponsorship Benchmark Dashboard</p>
+        </header>
+
+        <!-- Metrics Cards Section -->
+        <section class="metrics-container">
+            <div class="metric-card">
+                <div class="label">Total Sponsors</div>
+                <div class="value">114-126</div>
+                <div class="detail">Across all tournaments</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Total Revenue</div>
+                <div class="value">$1.68B</div>
+                <div class="detail">Combined 2024 revenue</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Average Deal Value</div>
+                <div class="value">$4.01M</div>
+                <div class="detail">Per sponsor average</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">Cross-Tournament Sponsors</div>
+                <div class="value">7</div>
+                <div class="detail">Emirates & Rolex (all 4)</div>
+            </div>
+        </section>
+
+        <!-- Section 1: Revenue Analysis -->
+        <section class="chart-section">
+            <h2 class="section-title">REVENUE ANALYSIS</h2>
+            <div class="charts-grid">
+                <!-- Total Revenue Comparison -->
+                <div class="chart-container">
+                    <h3 class="chart-title">TOTAL REVENUE COMPARISON</h3>
+                    <div class="chart-canvas">
+                        <canvas id="revenueComparison"></canvas>
+                    </div>
+                </div>
+
+                <!-- Revenue Breakdown by Source -->
+                <div class="chart-container">
+                    <h3 class="chart-title">REVENUE BREAKDOWN BY SOURCE</h3>
+                    <div class="chart-canvas">
+                        <canvas id="revenueBreakdown"></canvas>
+                    </div>
+                </div>
+
+                <!-- Revenue Distribution by Tournament -->
+                <div class="chart-container">
+                    <h3 class="chart-title">REVENUE DISTRIBUTION BY TOURNAMENT</h3>
+                    <div class="chart-canvas">
+                        <canvas id="revenueDistribution"></canvas>
+                    </div>
+                </div>
+
+                <!-- Placeholder for additional chart if needed -->
+                <div class="chart-container">
+                    <h3 class="chart-title">SPONSORSHIP VS TOTAL REVENUE</h3>
+                    <div class="chart-canvas">
+                        <canvas id="sponsorshipVsTotal"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Chart.js default font configuration
+        Chart.defaults.font.family = "'Berkeley Mono', monospace";
+        Chart.defaults.color = '#252422';
+
+        // Custom plugin for displaying values inside chart elements
+        const dataLabelPlugin = {
+            id: 'dataLabel',
+            afterDatasetsDraw(chart) {
+                const ctx = chart.ctx;
+                chart.data.datasets.forEach((dataset, i) => {
+                    const meta = chart.getDatasetMeta(i);
+                    if (!meta.hidden) {
+                        meta.data.forEach((element, index) => {
+                            if (chart.config.type === 'bar') {
+                                ctx.fillStyle = '#FFFCF2';
+                                ctx.font = 'bold 12px Berkeley Mono';
+                                ctx.textAlign = 'center';
+                                ctx.textBaseline = 'middle';
+
+                                const data = dataset.data[index];
+                                const label = typeof data === 'number' ? `$${data}M` : data;
+                                const x = element.x;
+                                const y = element.y + 15;
+
+                                ctx.fillText(label, x, y);
+                            }
+                        });
+                    }
+                });
+            }
+        };
+
+        // Register the plugin globally
+        Chart.register(dataLabelPlugin);
+
+        // Color palette for charts
+        const chartColors = {
+            primary: '#EB5E28',
+            secondary: '#403D39',
+            tertiary: '#CCC5B9',
+            quaternary: '#252422',
+            accent: ['#EB5E28', '#403D39', '#CCC5B9', '#252422']
+        };
+
+        // Total Revenue Comparison Chart (sorted by highest)
+        const revenueComparisonCtx = document.getElementById('revenueComparison').getContext('2d');
+        new Chart(revenueComparisonCtx, {
+            type: 'bar',
+            data: {
+                labels: ['US Open', 'Wimbledon', 'Australian Open', 'French Open'],
+                datasets: [{
+                    data: [560, 555, 400, 368],
+                    backgroundColor: chartColors.primary,
+                    borderRadius: 8,
+                    barThickness: 60
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `$${context.parsed.y}M`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: '#F0EDE6',
+                            drawBorder: false
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return `$${value}M`;
+                            },
+                            font: {
+                                family: 'Berkeley Mono',
+                                size: 11
+                            }
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            font: {
+                                family: 'Berkeley Mono',
+                                size: 11,
+                                weight: 'bold'
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Revenue Breakdown by Source (Donut Chart)
+        const revenueBreakdownCtx = document.getElementById('revenueBreakdown').getContext('2d');
+        new Chart(revenueBreakdownCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Broadcast Rights', 'Ticketing', 'Sponsorship', 'Hospitality', 'Other'],
+                datasets: [{
+                    data: [705, 434, 445, 200, 99],
+                    backgroundColor: [
+                        '#EB5E28',
+                        '#403D39',
+                        '#CCC5B9',
+                        '#252422',
+                        '#F5F3EE'
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            usePointStyle: true,
+                            pointStyle: 'circle',
+                            padding: 15,
+                            font: {
+                                family: 'Berkeley Mono',
+                                size: 11
+                            },
+                            generateLabels: function(chart) {
+                                const original = Chart.defaults.plugins.legend.labels.generateLabels;
+                                const labels = original.call(this, chart);
+                                labels.forEach(label => {
+                                    label.pointStyle = 'circle';
+                                });
+                                return labels;
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.label + ': $' + context.parsed + 'M';
+                            }
+                        }
+                    },
+                    datalabels: {
+                        color: '#FFFCF2',
+                        font: {
+                            weight: 'bold',
+                            size: 12
+                        },
+                        formatter: (value) => {
+                            return `$${value}M`;
+                        }
+                    }
+                }
+            },
+            plugins: [{
+                beforeDraw: function(chart) {
+                    const width = chart.width,
+                        height = chart.height,
+                        ctx = chart.ctx;
+                    ctx.restore();
+                    ctx.font = 'bold 16px Berkeley Mono';
+                    ctx.fillStyle = '#252422';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    const text = '$1.88B',
+                        textX = Math.round(width / 2),
+                        textY = height / 2 - 30;
+                    ctx.fillText(text, textX, textY);
+                    ctx.save();
+                }
+            }]
+        });
+
+        // Revenue Distribution by Tournament (Bar Chart)
+        const revenueDistributionCtx = document.getElementById('revenueDistribution').getContext('2d');
+        new Chart(revenueDistributionCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Wimbledon', 'US Open', 'French Open', 'Australian Open'],
+                datasets: [{
+                    label: 'Sponsorship',
+                    data: [125, 124, 74, 56],
+                    backgroundColor: '#EB5E28',
+                    borderRadius: 8
+                },
+                {
+                    label: 'Broadcast',
+                    data: [253, 170, 147, 89],
+                    backgroundColor: '#403D39',
+                    borderRadius: 8
+                },
+                {
+                    label: 'Other',
+                    data: [177, 266, 147, 255],
+                    backgroundColor: '#CCC5B9',
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            usePointStyle: true,
+                            pointStyle: 'circle',
+                            padding: 15,
+                            font: {
+                                family: 'Berkeley Mono',
+                                size: 11
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': $' + context.parsed.y + 'M';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        stacked: true,
+                        grid: {
+                            color: '#F0EDE6',
+                            drawBorder: false
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return `$${value}M`;
+                            },
+                            font: {
+                                family: 'Berkeley Mono',
+                                size: 11
+                            }
+                        }
+                    },
+                    x: {
+                        stacked: true,
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            font: {
+                                family: 'Berkeley Mono',
+                                size: 11,
+                                weight: 'bold'
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Sponsorship vs Total Revenue
+        const sponsorshipVsTotalCtx = document.getElementById('sponsorshipVsTotal').getContext('2d');
+        new Chart(sponsorshipVsTotalCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Wimbledon', 'US Open', 'French Open', 'Australian Open'],
+                datasets: [{
+                    label: 'Sponsorship Revenue',
+                    data: [125, 124, 74, 56],
+                    backgroundColor: '#EB5E28',
+                    borderRadius: 8,
+                    barThickness: 30
+                },
+                {
+                    label: 'Total Revenue',
+                    data: [555, 560, 368, 400],
+                    backgroundColor: '#CCC5B9',
+                    borderRadius: 8,
+                    barThickness: 30
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            usePointStyle: true,
+                            pointStyle: 'circle',
+                            padding: 15,
+                            font: {
+                                family: 'Berkeley Mono',
+                                size: 11
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': $' + context.parsed.y + 'M';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: '#F0EDE6',
+                            drawBorder: false
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return `$${value}M`;
+                            },
+                            font: {
+                                family: 'Berkeley Mono',
+                                size: 11
+                            }
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            font: {
+                                family: 'Berkeley Mono',
+                                size: 11,
+                                weight: 'bold'
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

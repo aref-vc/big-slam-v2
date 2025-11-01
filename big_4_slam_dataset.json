@@ -1,0 +1,1645 @@
+{
+  "metadata": {
+    "report_title": "Big 4 Grand Slam Tennis Tournaments - Comprehensive Sponsorship Benchmark Dataset",
+    "report_date": "2025-01-01",
+    "data_period": "2023-2025",
+    "currency_note": "All values converted to USD unless otherwise specified",
+    "compiled_by": "Claude (Anthropic) via Deep Research",
+    "sources_count": "100+",
+    "tournaments_analyzed": 4
+  },
+  "tournaments": [
+    {
+      "name": "Australian Open",
+      "official_name": "Australian Open",
+      "location": {
+        "city": "Melbourne",
+        "state": "Victoria",
+        "country": "Australia",
+        "venue": "Melbourne Park"
+      },
+      "organizing_body": "Tennis Australia",
+      "established": 1905,
+      "grand_slam_status_since": 1905,
+      "calendar_position": "First Grand Slam (January)",
+      "surface": "Hard court (Cushion acrylic - Greenset Worldwide)",
+      "courts": {
+        "total": 39,
+        "hard_courts": 33,
+        "clay_courts": 6,
+        "stadiums": [
+          {"name": "Rod Laver Arena", "capacity": 14820, "features": ["retractable roof"]},
+          {"name": "John Cain Arena", "capacity": 10500, "features": ["retractable roof"]},
+          {"name": "Margaret Court Arena", "capacity": 7500, "features": ["retractable roof"]},
+          {"name": "Kia Arena", "capacity": 5000, "year_opened": 2022}
+        ]
+      },
+      "financials_2024_2025": {
+        "total_revenue_aud": 605900000,
+        "total_revenue_usd": 400000000,
+        "sponsorship_revenue_aud": 84320000,
+        "sponsorship_revenue_usd": 56000000,
+        "domestic_media_revenue_aud": 55160000,
+        "international_media_revenue_aud": 80000000,
+        "prize_money_2025_aud": 96500000,
+        "prize_money_2025_usd": 64000000,
+        "economic_impact_victoria_aud": 565800000,
+        "operating_profit_2023_aud": 62000000,
+        "revenue_target_5yr_aud": 750000000
+      },
+      "prize_money_2025": {
+        "total_aud": 96500000,
+        "singles_champion_aud": 2178190,
+        "singles_runner_up_aud": 1182446,
+        "first_round_aud": 132000,
+        "yoy_growth_percent": 11.9
+      },
+      "attendance_viewership_2025": {
+        "total_attendance": 1218831,
+        "single_day_record": 97132,
+        "single_day_record_date": "2025-01-17",
+        "australia_tv_final_viewers": 4200000,
+        "italy_final_viewers": 35000000,
+        "broadcast_countries": "200+"
+      },
+      "sponsorship_portfolio": {
+        "total_sponsors": "50+",
+        "yoy_growth_sponsors_percent": 35,
+        "average_deal_value_aud": 3200000,
+        "sponsorship_strategy": "Volume + innovation, Asian market focus, digital-first",
+        "tiers": [
+          {
+            "tier": "Major Partner",
+            "sponsors": [
+              {
+                "name": "Kia",
+                "industry": "Automotive",
+                "deal_value_aud_total": 107000000,
+                "deal_duration_years": 5,
+                "contract_period": "2024-2028",
+                "annual_value_aud": 20000000,
+                "annual_value_usd_globaldata": 15000000,
+                "partnership_start": 2002,
+                "partnership_length_years": 22,
+                "significance": "Largest sports sponsorship in Australian history",
+                "rights": ["Fleet of 130 vehicles", "Kia Arena naming rights", "On-court branding", "Premium hospitality"],
+                "geographic_scope": "Australia-wide automotive exclusivity"
+              }
+            ]
+          },
+          {
+            "tier": "Associate Partners",
+            "sponsors": [
+              {
+                "name": "Emirates",
+                "industry": "Aviation",
+                "annual_value_aud_estimated": 7000000,
+                "partnership_start": 2015,
+                "grand_slams_sponsored": 4,
+                "rights": ["Official Airline", "Premium hospitality", "Global marketing", "Player transport"],
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Rolex",
+                "industry": "Luxury Watches",
+                "annual_value_aud_estimated": 7000000,
+                "partnership_period": "2008-2027",
+                "grand_slams_sponsored": 4,
+                "significance": "Official Timekeeper of all 4 Grand Slams",
+                "rights": ["Courtside clocks", "Premium suites", "Player ambassadors", "Broadcast integration"],
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Luzhou Laojiao",
+                "industry": "Chinese Spirits (Baijiu)",
+                "annual_value_aud": 20000000,
+                "deal_duration_years": 5,
+                "contract_period": "2024-2028",
+                "total_partnership_value_aud": 200000000,
+                "partnership_start": 2019,
+                "significance": "First Chinese Baijiu brand at Grand Slam; 'in same ballpark' as Kia deal",
+                "replaced_sponsor": "Jacob's Creek (A$6.5M/year)",
+                "rights": ["1573 Arena naming rights", "Premium spirits exclusivity", "China/Australia marketing"],
+                "geographic_scope": "China and Australia"
+              }
+            ]
+          },
+          {
+            "tier": "Official Partners - Technology",
+            "sponsors": [
+              {
+                "name": "Infosys",
+                "industry": "IT / Digital Innovation",
+                "partnership_period": "2019-2026",
+                "annual_value_aud_estimated_range": [3000000, 5000000],
+                "rights": ["AI/VR/AR fan experiences", "Analytics platforms", "Mobile app development", "Real-time statistics"],
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Google Pixel",
+                "industry": "Smartphones / Camera",
+                "partnership_start": 2024,
+                "annual_value_aud_estimated_range": [2000000, 4000000],
+                "rights": ["Social media content capture", "Behind-the-scenes photography", "Player experiences"],
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "CyberCX",
+                "industry": "Cybersecurity",
+                "partnership_year": 3,
+                "annual_value_aud_estimated_range": [1000000, 3000000],
+                "rights": ["Cyber security services", "Tournament infrastructure protection", "Campaign activation"],
+                "geographic_scope": "Australia"
+              }
+            ]
+          },
+          {
+            "tier": "Official Partners - Financial Services",
+            "sponsors": [
+              {
+                "name": "ANZ",
+                "industry": "Banking",
+                "partnership_start": 2010,
+                "annual_value_aud_estimated_range": [3000000, 5000000],
+                "rights": ["Banking services", "Community tennis initiatives (200,000 racquets distributed)", "Premium hospitality"],
+                "geographic_scope": "Australia"
+              },
+              {
+                "name": "Mastercard",
+                "industry": "Payments",
+                "partnership_start": 2017,
+                "renewed": 2019,
+                "annual_value_aud_estimated_range": [3000000, 5000000],
+                "rights": ["Exclusive payment processing", "Cardholder benefits", "Digital payment innovation"],
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Chubb",
+                "industry": "Insurance",
+                "partnership_start": 2020,
+                "expanded": 2025,
+                "annual_value_aud_estimated_range": [2000000, 4000000],
+                "categories": ["Life Insurance", "Trophy Insurance", "Travel Insurance"],
+                "rights": ["Close Call on-court integration", "Premium hospitality"],
+                "geographic_scope": "Global"
+              }
+            ]
+          },
+          {
+            "tier": "Official Partners - Food & Beverage",
+            "sponsors": [
+              {
+                "name": "Peroni & Somersby",
+                "industry": "Beer & Cider",
+                "parent": "Asahi Beverages",
+                "partnership_year": 4,
+                "annual_value_aud_estimated_range": [2000000, 3000000],
+                "category": "Beer & Cider",
+                "geographic_scope": "Australia"
+              },
+              {
+                "name": "Luzhou Laojiao",
+                "industry": "Spirits",
+                "category": "Premium Spirits",
+                "see_associate_partners": true
+              },
+              {
+                "name": "Grey Goose",
+                "industry": "Vodka",
+                "partnership_announced": "December 2024",
+                "annual_value_aud_estimated_range": [1000000, 2000000],
+                "category": "Vodka",
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Red Bull",
+                "industry": "Energy Drinks",
+                "partnership_start": 2025,
+                "annual_value_aud_estimated_range": [1000000, 2000000],
+                "category": "Energy Drinks",
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Luckin Coffee",
+                "industry": "Coffee",
+                "partnership_announced": "January 2024",
+                "annual_value_aud_estimated_range": [1000000, 2000000],
+                "category": "Coffee (China & Southeast Asia)",
+                "geographic_scope": "China and SEA"
+              },
+              {
+                "name": "M&M's",
+                "industry": "Confectionery",
+                "parent": "Mars",
+                "partnership_start": 2025,
+                "annual_value_aud_estimated_range": [1000000, 2000000],
+                "activation": "First M&M's pop-up store in Southern Hemisphere",
+                "geographic_scope": "Australia"
+              }
+            ],
+            "total_beverage_partners": 21,
+            "alcohol_subcategories": ["Beer", "Cider", "Wine", "Premium Wine", "Dark Spirits", "Vodka", "Gin", "Aperitif", "Champagne"]
+          },
+          {
+            "tier": "Official Partners - Other Categories",
+            "sponsors": [
+              {
+                "name": "Marriott Bonvoy",
+                "industry": "Hotels",
+                "partnership_year": 4,
+                "annual_value_aud_estimated_range": [2000000, 4000000],
+                "melbourne_properties": 10,
+                "rights": ["Official accommodation", "60+ unique experiences", "Private hospitality suite"],
+                "member_penetration_growth": "50% to 70% during tournament",
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Louis Vuitton",
+                "industry": "Luxury Fashion",
+                "annual_value_aud_estimated_range": [1000000, 3000000],
+                "rights": ["Custom trophy trunks (Norman Brookes, Daphne Akhurst)", "Hand-crafted in Paris", "Trophy presentation branding"],
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Ralph Lauren",
+                "industry": "Fashion / Apparel",
+                "partnership_start": 2020,
+                "partnership_year": 6,
+                "annual_value_aud_estimated_range": [2000000, 4000000],
+                "scope": "4,000 staff, ball kids, umpires, officials",
+                "sustainability": "Uniforms from recycled plastic bottles",
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "New Balance",
+                "industry": "Apparel & Footwear",
+                "partnership_period": "2024-2026",
+                "deal_duration_years": 3,
+                "annual_value_aud_estimated_range": [2000000, 4000000],
+                "significance": "First Grand Slam partnership for New Balance",
+                "scope": "Australian Open + United Cup",
+                "rights": ["Co-branded collections", "Player ambassadors"],
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Pirelli",
+                "industry": "Tires",
+                "partnership_start": 2025,
+                "annual_value_aud_estimated_range": [1000000, 2000000],
+                "significance": "First tennis sponsorship for Pirelli",
+                "rights": ["Virtual court signage", "Interactive fan activation"],
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Haier",
+                "industry": "Home Appliances",
+                "partnership_period": "2025-2027",
+                "deal_duration_years": 3,
+                "annual_value_aud_estimated_range": [2000000, 3000000],
+                "rights": ["Whole-of-home ecosystem showcase", "Pop-up at Federation Square", "On-site brand experiences"],
+                "geographic_scope": "Global with China emphasis"
+              },
+              {
+                "name": "Visit Victoria",
+                "industry": "Tourism",
+                "partnership_type": "Government",
+                "annual_value_estimated_aud": 2000000,
+                "rights": ["Global tourism campaign", "Regional Victoria showcase", "800,000+ spectators reach"],
+                "geographic_scope": "Australia (Victoria)"
+              }
+            ]
+          }
+        ],
+        "broadcast_partners": [
+          {
+            "market": "Australia (Domestic)",
+            "partners": [
+              {
+                "name": "Nine Network & Stan Sport",
+                "deal_value_aud_total": 425000000,
+                "deal_value_usd_total": 281000000,
+                "contra_value_aud": 100000000,
+                "total_package_value_aud": 525000000,
+                "contract_period": "2025-2029",
+                "annual_value_aud_range": [85000000, 105000000],
+                "rights": ["Free-to-air (Nine, 9Gem, 9Now)", "Streaming (Stan Sport - every match live, ad-free)"],
+                "significance": "Biggest deal in Tennis Australia history"
+              }
+            ]
+          },
+          {
+            "market": "USA",
+            "partners": [
+              {
+                "name": "ESPN",
+                "contract_period": "Through 2031",
+                "partnership_length_years": "Nearly 40",
+                "annual_value_usd_estimated_range": [50000000, 80000000],
+                "rights": ["Exclusive live coverage across ESPN platforms"]
+              }
+            ]
+          },
+          {
+            "market": "Europe",
+            "partners": [
+              {
+                "name": "Eurosport (Warner Bros. Discovery)",
+                "contract_period": "2022-2031",
+                "deal_duration_years": 10,
+                "partnership_start": 1995,
+                "rights": ["Linear and digital rights across Europe"]
+              }
+            ]
+          }
+        ]
+      },
+      "unique_assets": [
+        "3-week Summer of Tennis platform (AO + United Cup + lead-ins)",
+        "Kia Arena (5,000-seat named venue)",
+        "1573 Arena (3,000-seat court named for Luzhou Laojiao)",
+        "AO Metaverse (first Grand Slam metaverse)",
+        "AO Ventures ($50M VC fund)",
+        "Premium hospitality: AO Reserve, Club 1905"
+      ],
+      "strategic_positioning": "Volume growth strategy with Asian market focus, digital innovation, and extended 3-week platform"
+    },
+    {
+      "name": "French Open",
+      "official_name": "Roland-Garros",
+      "location": {
+        "city": "Paris",
+        "country": "France",
+        "venue": "Stade Roland Garros"
+      },
+      "organizing_body": "Fédération Française de Tennis (FFT)",
+      "established": 1891,
+      "grand_slam_status_since": 1925,
+      "calendar_position": "Second Grand Slam (May-June)",
+      "surface": "Clay courts",
+      "size_hectares": 13.5,
+      "courts": {
+        "total": 20,
+        "stadiums": [
+          {"name": "Court Philippe Chatrier", "capacity": 15000, "features": ["retractable roof (installed 2020)"]},
+          {"name": "Court Suzanne-Lenglen", "type": "Major show court"},
+          {"name": "Court Simonne-Mathieu", "capacity": 5000, "built": "2019-2021"}
+        ]
+      },
+      "financials_2024": {
+        "total_revenue_eur": 338000000,
+        "total_revenue_usd": 368000000,
+        "tv_broadcast_rights_eur": 135200000,
+        "tv_broadcast_rights_percent": 40,
+        "ticketing_hospitality_eur": 111500000,
+        "ticketing_hospitality_percent": 33,
+        "sponsorship_revenue_eur": 67600000,
+        "sponsorship_revenue_usd_2023": 98980000,
+        "sponsorship_percent": 20,
+        "merchandising_eur": 33800000,
+        "merchandising_percent": 10
+      },
+      "prize_money_2025": {
+        "total_eur": 56352000,
+        "total_usd": 63200000,
+        "singles_champion_eur": 2550000,
+        "singles_runner_up_eur": 1275000,
+        "doubles_champion_eur": 590000,
+        "yoy_growth_percent": 5.4
+      },
+      "attendance_viewership_2024": {
+        "total_attendance": 675080,
+        "alternative_figure": 3360000,
+        "france_final_viewers": 7000000,
+        "europe_viewership_growth_percent": 48,
+        "digital_video_views": 1000000000,
+        "digital_growth_percent": 110,
+        "broadcast_channels": "170+",
+        "broadcast_countries": 220
+      },
+      "sponsorship_portfolio": {
+        "total_sponsors": 22,
+        "average_deal_value_usd": 4800000,
+        "sponsorship_strategy": "Balanced portfolio with heritage partnerships, sustainability leadership, European luxury positioning",
+        "tiers": [
+          {
+            "tier": "Premium Partners (>$7M annually)",
+            "sponsors": [
+              {
+                "name": "BNP Paribas",
+                "industry": "Banking & Financial Services",
+                "partnership_start": 1973,
+                "partnership_length_years": 50,
+                "annual_value_usd_estimated": 7000000,
+                "significance": "Longest sports sponsorship in history",
+                "rights": ["Lead branding", "Ball boys/girls program", "Digital projects", "Hospitality"],
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Emirates",
+                "industry": "Aviation",
+                "annual_value_usd_range": [7000000, 10000000],
+                "contract_period": "2013-2027",
+                "revenue_contribution_percent": 10.1,
+                "partnership_elevated": 2018,
+                "grand_slams_sponsored": 4,
+                "rights": ["Philippe-Chatrier branding", "Suzanne-Lenglen branding", "Simonne-Mathieu branding", "Private lounge", "Courtside boxes"],
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "ENGIE",
+                "industry": "Energy & Utilities",
+                "annual_value_usd_estimated": 7000000,
+                "contract_period": "2011-2028",
+                "elevated_to_official": 2014,
+                "significance": "Second-largest deal",
+                "sustainability": "100% renewable electricity since 2016",
+                "rights": ["40 phone charging stations", "500 portable battery packs", "HeliaFilm photovoltaic tech"],
+                "social_impact": "800+ children invited annually",
+                "geographic_scope": "France-focused with global visibility"
+              },
+              {
+                "name": "Orange",
+                "industry": "Telecommunications",
+                "annual_value_usd_estimated": 7000000,
+                "partnership_length_years": 20,
+                "innovation": ["5G network (2019)", "8K camera broadcast", "VR stadium tours", "AI virtual assistant"],
+                "geographic_scope": "France domestic"
+              },
+              {
+                "name": "Lacoste",
+                "industry": "Fashion / Apparel",
+                "contract_extended": "Through 2030",
+                "extension_announced": "June 2024",
+                "significance": "Most expensive outfitter deal among all 4 Grand Slams",
+                "scope": "Ball boys/girls, referees, French teams",
+                "retail_space_sqm": 100,
+                "community": ["Training wall renovations", "Para-tennis grants"],
+                "geographic_scope": "Global with France emphasis"
+              },
+              {
+                "name": "Rolex",
+                "industry": "Luxury Watches",
+                "partnership_start": 2019,
+                "annual_value_usd_estimated": 10000000,
+                "replaced": "Longines (2007-2018)",
+                "grand_slams_sponsored": 4,
+                "significance": "Only brand sponsoring all 4 Grand Slams",
+                "rights": ["Official Timekeeper", "Centre Court clocks", "Dedicated hospitality", "Broadcast integration"],
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Renault",
+                "industry": "Automotive",
+                "annual_value_eur_range": [5000000, 7000000],
+                "initial_contract": "2022-2026",
+                "total_deal_value_usd": 30000000,
+                "extended_through": 2031,
+                "partnership_start": 2022,
+                "replaced": "Peugeot",
+                "focus": "Sustainable mobility",
+                "rights": ["EV fleet", "Logo on 5 main court nets", "Roland Garros eSeries", "Junior Series (Asia/South America)"],
+                "geographic_scope": "France-focused with global visibility"
+              }
+            ]
+          },
+          {
+            "tier": "Official Partners ($3-6M annually)",
+            "sponsors": [
+              {
+                "name": "Infosys",
+                "industry": "IT / Digital Innovation",
+                "partnership_period": "2019-2026",
+                "extended": 2022,
+                "innovation_2025": ["Infosys Topaz (agentic AI + generative AI)", "AI video analysis", "First/second serve efficacy analytics"],
+                "rights": ["Official app", "Official website", "AI-powered analytics", "Match Center", "Players Portal"],
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Haier",
+                "industry": "Home Appliances",
+                "partnership_period": "2023-2025",
+                "renewed": "March 2024",
+                "rights": ["Netboxes on 6 courts", "Partners' Village space", "Fan Village stand", "SonyLIV broadcasting (India)"],
+                "also_partner": "ATP Tour",
+                "geographic_scope": "Global with emerging markets focus"
+              },
+              {
+                "name": "Wilson Sporting Goods",
+                "industry": "Sports Equipment",
+                "partnership_start": 2020,
+                "extended": 2024,
+                "replaced": "Babolat",
+                "rights": ["Official Ball", "Official Stringing", "Co-branded products"],
+                "products": ["Tennis balls", "Rackets", "String", "Bags", "Accessories"],
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Mastercard",
+                "industry": "Payments",
+                "partnership_start": 2013,
+                "initial_duration_years": 5,
+                "renewed": "Continuously through 2025",
+                "activation": "Priceless Paris experiences",
+                "rights": ["Exclusive payment card", "Premium seating", "Behind-the-scenes access"],
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Accor (AccorHotels / ALL)",
+                "industry": "Hospitality",
+                "partnership_start": 2015,
+                "renewed": "Continuously",
+                "activation": ["Themed Roland-Garros rooms globally (Paris, Tokyo, Rio, Dubai)", "Sofitel concierge service"],
+                "rights": ["ALL loyalty program branding", "Partners' Village reception"],
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Lavazza",
+                "industry": "Coffee",
+                "partnership_period": "2015-2030",
+                "extended": "June 2025",
+                "scale": {"points_of_sale": 70, "coffee_machines": 300, "baristas": 20, "cups_per_year": 400000},
+                "activation": ["Lounge in Partners' Village", "Off-site at Parisian bars"],
+                "also_partner": ["Wimbledon", "US Open"],
+                "geographic_scope": "Global with Paris activation"
+              }
+            ]
+          },
+          {
+            "tier": "Official Suppliers",
+            "sponsors": [
+              {
+                "name": "Stella Artois",
+                "industry": "Beer",
+                "parent": "AB InBev",
+                "partnership_period": "2024-2026",
+                "deal_duration_years": 3,
+                "annual_value_usd_2024": 2500000,
+                "activation": ["Court 6 bar", "Beer walls"],
+                "note": "Cannot be called 'sponsor' in France due to Loi Evin",
+                "also_partner": "Wimbledon",
+                "geographic_scope": "France on-site"
+              },
+              {
+                "name": "Moët Hennessy",
+                "industry": "Champagne & Spirits",
+                "parent": "LVMH",
+                "category": "Liquor",
+                "activation": ["Premium hospitality", "VIP lounges"],
+                "note": "Cannot be called 'sponsor' in France due to Loi Evin",
+                "geographic_scope": "France on-site"
+              },
+              {
+                "name": "Perrier",
+                "industry": "Water",
+                "category": "Official Water",
+                "geographic_scope": "France-focused"
+              },
+              {
+                "name": "Potel & Chabot",
+                "industry": "Catering",
+                "partnership_start": "May 2016",
+                "category": "Official Catering",
+                "geographic_scope": "Paris-based"
+              },
+              {
+                "name": "Magnum",
+                "industry": "Ice Cream",
+                "category": "Official Ice Cream",
+                "geographic_scope": "France on-site"
+              },
+              {
+                "name": "ISDIN",
+                "industry": "Skincare",
+                "partnership_announced": "April 2024",
+                "category": "Official Sunscreen (first-ever)",
+                "activation": ["Sun safety booth", "Product sampling kiosks"],
+                "geographic_scope": "France on-site"
+              },
+              {
+                "name": "Adecco",
+                "industry": "HR / Staffing",
+                "category": "HR and Temporary Staffing Services",
+                "geographic_scope": "France operations"
+              },
+              {
+                "name": "Hespéride",
+                "industry": "Furniture",
+                "category": "Official Furniture",
+                "geographic_scope": "France operations"
+              },
+              {
+                "name": "JCDecaux",
+                "industry": "Advertising / Out-of-Home",
+                "category": "Official Advertising Partner",
+                "geographic_scope": "France-focused"
+              }
+            ]
+          }
+        ],
+        "recent_exits": [
+          {"name": "Oppo", "industry": "Consumer Electronics", "status": "Exited pre-2024", "former_role": "Premium Partner"}
+        ],
+        "broadcast_partners": [
+          {
+            "market": "France (Domestic)",
+            "partners": [
+              {
+                "name": "France Télévisions & Amazon Prime Video",
+                "structure": "Joint partnership",
+                "contract_period": "2021-2027",
+                "france_tv_coverage": ["Qualifying rounds", "Daytime matches", "Court Simonne-Mathieu exclusivity", "Semi-finals/finals (co-broadcast)"],
+                "amazon_coverage": ["11 exclusive evening sessions", "2 exclusive quarter-finals", "Semi-finals/finals (co-broadcast)"]
+              }
+            ]
+          },
+          {
+            "market": "Europe",
+            "partners": [
+              {
+                "name": "Warner Bros. Discovery / Eurosport",
+                "contract_period": "2022-2026",
+                "partnership_length_years": 35,
+                "countries": "50+",
+                "platforms": ["Eurosport linear", "Max streaming", "Discovery+"],
+                "viewership_growth_2024_percent": 48
+              }
+            ]
+          },
+          {
+            "market": "USA",
+            "partners": [
+              {
+                "name": "Warner Bros. Discovery / TNT Sports",
+                "deal_value_usd_total": 650000000,
+                "contract_period": "2025-2034",
+                "deal_duration_years": 10,
+                "annual_value_usd": 65000000,
+                "previous_nbc_value_usd": 21700000,
+                "growth_multiplier": 3,
+                "platforms": ["TNT", "TBS", "TruTV", "Max streaming"],
+                "matches_per_tournament": "Nearly 900 live"
+              }
+            ]
+          },
+          {
+            "market": "China",
+            "partners": [{"name": "CCTV", "contract_duration_years": 5}]
+          },
+          {
+            "market": "Australia",
+            "partners": [{"name": "Nine Network"}]
+          },
+          {
+            "market": "New Zealand",
+            "partners": [{"name": "Sky"}]
+          }
+        ]
+      },
+      "unique_assets": [
+        "Only Grand Slam on clay courts",
+        "133-year history (established 1891)",
+        "Parisian location - gateway to French luxury market",
+        "€400M+ stadium renovation (2015-2021)",
+        "Sustainability: 100% renewable energy (ENGIE), EV fleet (Renault)",
+        "BNP Paribas 50+ year partnership (world record)"
+      ],
+      "strategic_positioning": "Balanced heritage model with European luxury positioning, sustainability leadership, and clay court uniqueness"
+    },
+    {
+      "name": "Wimbledon",
+      "official_name": "The Championships, Wimbledon",
+      "location": {
+        "address": "Church Road, Wimbledon, London, SW19 5AE",
+        "country": "United Kingdom",
+        "venue": "All England Lawn Tennis Club"
+      },
+      "organizing_body": "All England Lawn Tennis Club (AELTC)",
+      "established": 1868,
+      "first_tennis_championship": 1877,
+      "calendar_position": "Third Grand Slam (June-July)",
+      "surface": "Grass courts",
+      "size_acres": 42,
+      "courts": {
+        "total": 55,
+        "championship_grass_courts": 19,
+        "stadiums": [
+          {"name": "Centre Court", "capacity": 14979, "features": ["retractable roof (2009)", "Royal Box (74 seats)"]},
+          {"name": "No. 1 Court", "capacity": 14000},
+          {"name": "No. 2 Court", "capacity": 8125}
+        ]
+      },
+      "financials_2024": {
+        "total_turnover_gbp": 406500000,
+        "total_turnover_usd": 555000000,
+        "operating_profit_gbp": 54300000,
+        "lta_distribution_gbp": 49800000,
+        "lta_distribution_note": "90% of profits, highest ever",
+        "media_rights_usd": 253420000,
+        "media_rights_percent_of_total": 50,
+        "sponsorship_revenue_usd": 124730000,
+        "ticketing_revenue_usd": 81000000,
+        "hospitality_revenue_gbp": 10000000,
+        "concessions_merchandise_usd": 61000000,
+        "concessions_merchandise_percent": 12
+      },
+      "prize_money_2024": {
+        "total_gbp": 50000000,
+        "total_usd": 63600000,
+        "singles_champion_gbp": 2700000,
+        "singles_champion_usd": 3400000,
+        "singles_runner_up_gbp": 1400000,
+        "first_round_gbp": 60000,
+        "first_round_usd": 76000,
+        "yoy_growth_percent": 11.9,
+        "ten_year_growth": "Doubled from £25M (2014) to £50M (2024)"
+      },
+      "attendance_viewership_2024": {
+        "total_attendance": 532651,
+        "record_attendance_year": 2022,
+        "record_attendance": 515164,
+        "uk_mens_final_tv": 7600000,
+        "uk_mens_final_streams": 3300000,
+        "uk_womens_final_tv": 4100000,
+        "uk_womens_final_streams": 1900000,
+        "india_viewers": 36300000,
+        "india_growth_percent": 176,
+        "broadcast_territories": "220+",
+        "broadcast_partners": 39,
+        "bbc_iplayer_streams_2022": 53800000
+      },
+      "sponsorship_portfolio": {
+        "total_sponsors": 17,
+        "sponsorship_philosophy": "Clean Court Philosophy - Exclusivity over volume, premium positioning, minimal on-court branding, no LED boards",
+        "foregone_revenue_usd": 60000000,
+        "sponsorship_revenue_2024_usd": 124730000,
+        "sponsorship_revenue_2023_usd": 95000000,
+        "yoy_growth_percent": 31.3,
+        "average_per_sponsor_usd": 7310000,
+        "competitive_advantage": "2-3x higher revenue per sponsor vs competitors; commands 10x category increases",
+        "tiers": [
+          {
+            "tier": "Premium Partners (>$10M annually)",
+            "sponsors": [
+              {
+                "name": "Barclays",
+                "industry": "Banking",
+                "annual_value_gbp": 20000000,
+                "annual_value_usd_range": [23730000, 26000000],
+                "contract_period": "2023-2029",
+                "deal_duration_years": 7,
+                "replaced": "HSBC (2008-2022, £2M/year)",
+                "value_increase_multiplier": 10,
+                "significance": "Largest Wimbledon sponsorship ever",
+                "rights": ["Umpire chair branding (all 18)", "Barclays Clubhouse", "Fanzone (VR, photo moments, Q&As)"],
+                "social_impact": "Largest donation to Wimbledon Foundation by official partner",
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Emirates",
+                "industry": "Aviation",
+                "annual_value_usd": 12000000,
+                "partnership_announced": "February 2024",
+                "grand_slams_sponsored": 4,
+                "significance": "Completes Grand Slam portfolio - only airline sponsoring all 4",
+                "rights": ["Centre Court branding", "No. 1 Court branding", "Wimbleworld metaverse (Roblox)"],
+                "social_impact": "Multi-million £ 'Force for Good' fund",
+                "geographic_scope": "Global"
+              }
+            ]
+          },
+          {
+            "tier": "Major Partners ($6-10M annually)",
+            "sponsors": [
+              {
+                "name": "Evian",
+                "industry": "Water",
+                "annual_value_usd": 7500000,
+                "category": "Official Water",
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Vodafone",
+                "industry": "Telecommunications",
+                "annual_value_usd": 7500000,
+                "innovation": "5G headsets for visually impaired fans (2023)",
+                "geographic_scope": "UK/Europe"
+              },
+              {
+                "name": "American Express",
+                "industry": "Payments",
+                "annual_value_usd": 7500000,
+                "deal_total_usd": 37500000,
+                "deal_duration_years": 5,
+                "activation": ["Exclusive hospitality lounges", "Fast-track entry", "Unique merchandise"],
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Oppo",
+                "industry": "Smartphones",
+                "annual_value_usd": 6000000,
+                "category": "Official Smartphone Partner",
+                "geographic_scope": "Global"
+              }
+            ]
+          },
+          {
+            "tier": "Official Partners ($3-6M annually)",
+            "sponsors": [
+              {
+                "name": "Rolex",
+                "industry": "Luxury Watches",
+                "annual_value_usd_estimated_range": [5000000, 8000000],
+                "partnership_start": 1978,
+                "partnership_length_years": 46,
+                "significance": "World's oldest sports marketing deal",
+                "origin": "IMG Founder Mark McCormack convinced Rolex Chairman",
+                "grand_slams_sponsored": 4,
+                "unique": "Only brand sponsoring all 4 Grand Slams",
+                "activation": "Centre Court clock (constant visual, millions of impressions)",
+                "brand_philosophy": "Woven into competition rather than displayed around it",
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "IBM",
+                "industry": "Technology / IT",
+                "annual_value_usd_estimated_range": [4000000, 6000000],
+                "partnership_start": 1990,
+                "partnership_length_years": 34,
+                "innovation": ["Watson AI", "Cloud computing", "Real-time analytics", "AI commentary"],
+                "services": "Powers 140+ hours coverage, mobile app, co-branded statistics",
+                "integration": "One team approach with AELTC experts",
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Stella Artois",
+                "industry": "Beer",
+                "parent": "AB InBev",
+                "annual_value_usd_estimated_range": [3000000, 5000000],
+                "partnership_start": 2011,
+                "renewed": "June 2023",
+                "products": ["Classic", "Unfiltered", "Alcohol-Free"],
+                "innovation": "Perfect Serve Award (new 2023)",
+                "also_partner": "French Open",
+                "geographic_scope": "Global"
+              }
+            ]
+          },
+          {
+            "tier": "Official Suppliers",
+            "sponsors": [
+              {
+                "name": "Slazenger",
+                "industry": "Sports Equipment",
+                "partnership_start": 1902,
+                "partnership_length_years": 122,
+                "significance": "LONGEST unbroken sporting sponsorship in history",
+                "service": "54,000+ tennis balls annually",
+                "quality_control": "Rigorous testing with sports scientists",
+                "category": "Official Tennis Ball",
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Ralph Lauren",
+                "industry": "Fashion / Apparel",
+                "partnership_start": 2006,
+                "partnership_length_years": 18,
+                "significance": "First designer label in tournament's inner circle",
+                "scope": "Umpires, line judges, ball kids",
+                "brand_value": "Mobile brand placement throughout tournament",
+                "category": "Official Outfitter",
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Babolat",
+                "industry": "Tennis Equipment",
+                "partnership_length_years": 10,
+                "upgraded_to_official": 2022,
+                "service": "4,757+ racquets serviced (2022)",
+                "equipment": "Grass court shoes for players, ball kids, staff",
+                "categories": ["Official Rackets", "Strings", "Bags", "Shoes", "Official Stringer"],
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Lavazza",
+                "industry": "Coffee",
+                "partnership_start": 2011,
+                "contract_period": "Through 2025",
+                "extended": "July 2022",
+                "distribution": "Bars, restaurants, corporate hospitality, media rooms, player areas",
+                "also_partner": ["French Open", "US Open"],
+                "category": "Official Coffee",
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Lanson",
+                "industry": "Champagne",
+                "association_start": 1977,
+                "official_since": 2001,
+                "company_founded": 1760,
+                "last_renewal": "July 2018 (5-year)",
+                "products": "Exclusive Wimbledon-themed bottles",
+                "category": "Official Champagne",
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Keith Prowse",
+                "industry": "Hospitality Services",
+                "partnership_start": 1982,
+                "partnership_length_years": 40,
+                "exclusive_since": 2019,
+                "parent": "Levy UK (Compass Group UK & Ireland)",
+                "contract_extension": "October 2017 (5-year, 2019-2024+)",
+                "social_impact": "£5 from each guest to Wimbledon Foundation",
+                "category": "Official Hospitality Provider",
+                "geographic_scope": "UK"
+              },
+              {
+                "name": "Jaguar Land Rover",
+                "industry": "Automotive",
+                "partnership_start": 2015,
+                "rights": "Exclusive vehicle rights, hospitality transport",
+                "category": "Official Car",
+                "geographic_scope": "UK/Global"
+              },
+              {
+                "name": "Robinsons",
+                "industry": "Soft Drinks",
+                "partnership_period": "1935-2021",
+                "partnership_length_years": 86,
+                "status": "Unclear if continued post-2021",
+                "category": "Official Soft Drink (Historical)"
+              },
+              {
+                "name": "Pimm's",
+                "industry": "Beverage",
+                "category": "Official Partner (traditional Wimbledon drink)",
+                "geographic_scope": "UK"
+              }
+            ]
+          }
+        ],
+        "broadcast_partners": [
+          {
+            "market": "USA",
+            "partners": [
+              {
+                "name": "ESPN/ABC",
+                "contract_period": "Through 2035",
+                "annual_value_usd": 95000000,
+                "previous_value_usd": 52500000,
+                "contract_announced": "July 2021",
+                "deal_duration_years": 12,
+                "coverage": "140+ hours across ESPN, ESPN2, ABC",
+                "streaming": ["ESPN+", "Disney+ (first day + select)"],
+                "rights_holder_since": 2011
+              }
+            ]
+          },
+          {
+            "market": "UK",
+            "partners": [
+              {
+                "name": "BBC",
+                "contract_period": "Through 2027",
+                "annual_value_gbp": 44000000,
+                "annual_value_usd": 60620000,
+                "partnership_start": 1927,
+                "partnership_length_years": 97,
+                "significance": "One of longest sports broadcast partnerships",
+                "coverage": "TV, radio, BBC iPlayer, mobile apps, smart TVs",
+                "bbc_iplayer_streams_2022": 53800000
+              }
+            ]
+          },
+          {
+            "market": "Europe",
+            "partners": [
+              {
+                "name": "Warner Bros. Discovery (Eurosport)",
+                "contract_period": "Through 2027",
+                "territories": ["Belgium", "Bulgaria", "Czech Republic", "Finland", "Hungary", "Iceland", "Netherlands", "Norway", "Romania", "Slovakia", "Sweden"],
+                "platforms": ["Eurosport", "Max streaming"]
+              },
+              {
+                "name": "Amazon Prime Video",
+                "contract_period": "Through 2027",
+                "markets": ["Germany", "Austria"]
+              },
+              {
+                "name": "beIN Sports",
+                "contract_period": "Through 2028",
+                "markets": ["France", "Middle East", "North Africa"]
+              }
+            ]
+          },
+          {
+            "market": "Other Markets",
+            "partners": [
+              {"name": "Star Sports", "market": "India", "viewers_2024": 36300000},
+              {"name": "Disney+", "market": "New Zealand", "content": "ESPN"},
+              {"name": "Sky Group Limited", "markets": "All Sky markets outside UK"}
+            ]
+          }
+        ],
+        "rights_agent": "IMG (exclusive media rights representative)"
+      },
+      "unique_assets": [
+        "Royal Box (74 premium seats, British royal family, ultimate prestige)",
+        "146-year history (oldest tournament, 1877)",
+        "All-white dress code tradition",
+        "Grass courts (only Grand Slam on grass)",
+        "Strawberries & cream tradition (191,930 portions 2019)",
+        "Pimm's traditional drink",
+        "Slazenger 122-year partnership (world record)",
+        "Rolex Centre Court clock (constant visual)",
+        "Clean courts (no courtside LED ads)",
+        "British prestige (UK's premier sporting event)"
+      ],
+      "strategic_positioning": "Premium exclusivity model - highest sponsorship revenue despite fewest partners through 'Clean Court Philosophy' and heritage positioning"
+    },
+    {
+      "name": "US Open",
+      "official_name": "US Open Tennis Championships",
+      "location": {
+        "venue": "USTA Billie Jean King National Tennis Center",
+        "area": "Flushing Meadows–Corona Park",
+        "borough": "Queens",
+        "city": "New York City",
+        "state": "New York",
+        "country": "United States"
+      },
+      "organizing_body": "United States Tennis Association (USTA)",
+      "established": 1881,
+      "moved_to_current_location": 1978,
+      "calendar_position": "Fourth Grand Slam (August-September)",
+      "surface": "Hard court",
+      "size_acres": 46.5,
+      "courts": {
+        "total_within_facility": 22,
+        "adjoining_park": 12,
+        "stadiums": [
+          {"name": "Arthur Ashe Stadium", "capacity": 23771, "significance": "Largest tennis stadium in world"},
+          {"name": "Louis Armstrong Stadium", "capacity": 14000},
+          {"name": "Grandstand", "capacity": 8125},
+          {"name": "Court 17 (The Pit)", "capacity": 2800}
+        ]
+      },
+      "financials_2024": {
+        "operating_revenue_usd": 559600000,
+        "usta_revenue_percent": 90,
+        "operating_expenses_usd": 282200000,
+        "operating_profit_usd": 277400000,
+        "profit_margin_percent": 49,
+        "ticket_sales_usd": 208500000,
+        "ticket_sales_percent": 37.3,
+        "sponsorship_revenue_usd_range": [118230000, 130500000],
+        "sponsorship_percent_range": [21.1, 23.3],
+        "broadcast_rights_usd": 145000000,
+        "broadcast_percent": 25.9,
+        "corporate_hospitality_usd": 83300000,
+        "corporate_hospitality_percent": 14.9,
+        "honey_deuce_revenue_usd": 12800000,
+        "honey_deuce_units": 556000,
+        "honey_deuce_price": 23
+      },
+      "prize_money_2024": {
+        "total_usd": 75000000,
+        "significance": "LARGEST in tennis history",
+        "singles_champion_usd": 3600000,
+        "singles_winner_names": ["Jannik Sinner", "Aryna Sabalenka"],
+        "first_round_usd": 100000,
+        "first_round_note": "First six-figure first-round payout in history"
+      },
+      "attendance_viewership_2024": {
+        "total_attendance": 1048669,
+        "significance": "FIRST TIME OVER 1 MILLION",
+        "main_draw_attendance": 832640,
+        "fan_week_attendance": 216029,
+        "fan_week_growth_percent": 37,
+        "opening_day_attendance": 74641,
+        "opening_day_note": "Largest single-day in 56-year history",
+        "arthur_ashe_sessions_sold_out": 25,
+        "mens_final_avg_viewers": 1700000,
+        "mens_final_network": "ESPN",
+        "womens_final_avg_viewers": 1600000,
+        "womens_final_network": "ESPN",
+        "viewership_note": "Down 53% from 2023 (no American champion)"
+      },
+      "sponsorship_portfolio": {
+        "total_sponsors": 25,
+        "average_deal_value_usd": 4730000,
+        "sponsorship_strategy": "Three-tier partner system, NYC premium market advantage, technology leadership, experiential excellence, category innovation",
+        "financial_services_concentration_percent": 40,
+        "tiers": [
+          {
+            "tier": "Title & Presenting Sponsors",
+            "sponsors": [
+              {
+                "name": "JP Morgan Chase",
+                "industry": "Banking",
+                "annual_value_usd": 22000000,
+                "significance": "LARGEST US Open sponsorship",
+                "partnership_history_years": 43,
+                "partnership_start": 1981,
+                "title": "Presenting Sponsor of Men's Singles Championship",
+                "presenting_sponsor_years": 8,
+                "rights": ["Chase Lounge (free for cardholders)", "3,760 sq ft suite (165-person capacity)", "On-court finals branding", "Player transportation"],
+                "geographic_scope": "United States"
+              },
+              {
+                "name": "JP Morgan",
+                "industry": "Investment Banking",
+                "annual_value_usd_estimated_range": [18000000, 20000000],
+                "title": "Presenting Sponsor of Women's Singles Championship",
+                "presenting_sponsor_since": 1996,
+                "presenting_sponsor_years": 28,
+                "significance": "Longest-running Grand Slam championship sponsorship",
+                "rights": ["Trophy presentation", "Women's finals branding", "Corporate hospitality"],
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "American Express",
+                "industry": "Payments",
+                "annual_value_usd_estimated": 10000000,
+                "benchmark_year": 2019,
+                "partnership_length_years": 30,
+                "partnership_start": 1994,
+                "renewed": "August 2023",
+                "activation": ["Ticket presale", "Centurion Suite", "By Invitation Only packages ($400/ticket)", "Cardholder lounge", "Experiential activations (glow tennis, nail art, claw machines)"],
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Emirates",
+                "industry": "Aviation",
+                "annual_value_usd_estimated": 17000000,
+                "benchmark_year": 2019,
+                "partnership_length_years": 12,
+                "grand_slams_sponsored": 4,
+                "unique": "One of two brands sponsoring all 4 Grand Slams (with Rolex)",
+                "rights": ["Tournament branding", "Player transport", "Hospitality", "Global marketing"],
+                "geographic_scope": "Global"
+              }
+            ]
+          },
+          {
+            "tier": "Official Partners",
+            "sponsors": [
+              {
+                "name": "Rolex",
+                "industry": "Luxury Watches",
+                "annual_value_usd_estimated": 10000000,
+                "benchmark_year": 2019,
+                "partnership_start": 2018,
+                "grand_slams_sponsored": 4,
+                "unique": "Sponsors all 4 Grand Slams",
+                "rights": ["On-court clocks", "Timing systems", "Scoreboard integration", "Premium positioning"],
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Cadillac",
+                "industry": "Automotive",
+                "deal_value_usd_total_estimated": 40000000,
+                "annual_value_usd_estimated": 8000000,
+                "partnership_start": 2022,
+                "replaced": "Mercedes-Benz",
+                "fleet_size": "250+ vehicles",
+                "activation": "Althea Gibson digital art booth",
+                "rights": ["Player transportation", "VIP transport", "Experiential zones"],
+                "geographic_scope": "United States"
+              },
+              {
+                "name": "Deloitte",
+                "industry": "Professional Services",
+                "partnership_start": "January 2017",
+                "titles": ["Presenting Sponsor of Wheelchair Competition", "Presenting Sponsor of USTA Foundation NJTL Essay Contest"],
+                "deal_type": "Services + cash sponsorship",
+                "focus": "Business transformation, digital innovation",
+                "annual_value_usd_estimated_range": [4000000, 6000000],
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "IHG Hotels & Resorts",
+                "industry": "Hotels / Hospitality",
+                "partnership_start": 2019,
+                "portfolio": ["InterContinental", "Kimpton", "Holiday Inn"],
+                "rights": ["Official accommodation", "Loyalty program integration", "Player hotel services"],
+                "annual_value_usd_estimated_range": [3000000, 5000000],
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Chubb",
+                "industry": "Insurance",
+                "renewed": "September 2024",
+                "activation": "VR paint-splatter tennis game",
+                "rights": ["On-site branding", "B2B networking"],
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "IBM",
+                "industry": "Technology / IT",
+                "partnership_length_years": 30,
+                "partnership_start": 1994,
+                "deal_focus": "Technology services + sponsorship",
+                "innovation_2024": {
+                  "platform": "watsonx AI",
+                  "match_chat": "AI assistant for 254 singles matches",
+                  "ai_match_reports": "Granite 13B LLM, minutes after match",
+                  "slam_tracker": "Live 'Likelihood to Win' probabilities",
+                  "productivity_gain_percent": 300,
+                  "fan_value_percent": 85
+                },
+                "annual_value_usd_estimated_range": [5000000, 7000000],
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Heineken",
+                "industry": "Beer",
+                "focus": "Heineken 0.0 (non-alcoholic)",
+                "tier": "Associate partner (beverage/spirits)",
+                "geographic_scope": "Global"
+              }
+            ]
+          },
+          {
+            "tier": "Official Suppliers",
+            "sponsors": [
+              {
+                "name": "Wilson Sporting Goods",
+                "industry": "Sports Equipment",
+                "partnership_length_years": 46,
+                "partnership_start": 1978,
+                "scope": "Every tennis ball used in tournament",
+                "activation": "VR player experience",
+                "category": "Official Ball",
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Tiffany & Co.",
+                "industry": "Luxury / Jewelry",
+                "partnership_length_years": 37,
+                "partnership_start": 1987,
+                "renewed": "August 2023",
+                "innovation": "On-site immediate hand-engraving (since 2023) - champions leave with trophy",
+                "rights": ["Trophy design", "Craftsmanship", "Presentation ceremony"],
+                "category": "Official Trophy Maker",
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Polo Ralph Lauren",
+                "industry": "Fashion / Apparel",
+                "partnership_length_years": 20,
+                "partnership_start": 2005,
+                "renewed": 2017,
+                "renewal_duration_years": 6,
+                "scope": "Referees, umpires, ball kids, tournament staff",
+                "brand_alignment": "American heritage, classic style, New York identity",
+                "categories": ["Official Outfitter", "Sunglass Sponsor"],
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "La Roche-Posay",
+                "industry": "Skincare",
+                "partnership_start": "August 2022",
+                "parent": "L'Oréal",
+                "significance": "First-ever Official Sunscreen Partner",
+                "activation": ["Sun safety education booth (South Plaza)", "2 product-sampling kiosks", "Products in US Open Collection stores"],
+                "geographic_scope": "USA"
+              },
+              {
+                "name": "Mount Sinai",
+                "industry": "Healthcare / Medical Services",
+                "contract_period": "Through 2026",
+                "scope": ["On-site medical facilities", "Player medical services", "Emergency response", "Health programs"],
+                "category": "Official Hospital & Medical Services Provider",
+                "geographic_scope": "New York"
+              }
+            ]
+          },
+          {
+            "tier": "Beverage Partners (7 of 25 total)",
+            "sponsors": [
+              {
+                "name": "Grey Goose",
+                "industry": "Vodka",
+                "partnership_length_years": 19,
+                "renewed": 2023,
+                "renewal_duration_years": 5,
+                "signature_activation": {
+                  "name": "Honey Deuce Cocktail",
+                  "units_sold_2024": 556000,
+                  "revenue_usd_2024": 12800000,
+                  "price": 23,
+                  "growth_percent": 23.5,
+                  "launched": 2007,
+                  "tradition_years": 17
+                },
+                "annual_value_usd_estimated_range": [3000000, 5000000],
+                "category": "Official Vodka",
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Moët & Chandon",
+                "industry": "Champagne",
+                "partnership_announced": "August 2024",
+                "status": "New partner",
+                "activation": ["Premium hospitality", "Victory celebrations"],
+                "category": "Official Champagne",
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Evian",
+                "industry": "Water",
+                "partnership_length_years": 35,
+                "partnership_start": 1989,
+                "significance": "One of longest-running beverage partnerships in tennis",
+                "category": "Official Water",
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Lavazza",
+                "industry": "Coffee",
+                "partnership_length_years": 10,
+                "contract_period": "Through 2025",
+                "contract_announced": "2023-2025 (3-year)",
+                "activation": "On-site coffee service, branded café areas",
+                "category": "Official Coffee",
+                "also_partner": ["French Open", "Wimbledon"],
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "Dobel Tequila",
+                "industry": "Tequila",
+                "activation": "Month-long JFK Airport takeover (all terminals), Terminal 4 sampling with DFS",
+                "significance": "First-of-its-kind spirits collaboration",
+                "category": "Official Tequila",
+                "geographic_scope": "USA"
+              },
+              {
+                "name": "Aperol",
+                "industry": "Spirits",
+                "category": "Beverage partner",
+                "geographic_scope": "Global"
+              },
+              {
+                "name": "FAGE",
+                "industry": "Yogurt",
+                "category": "Official Yogurt Partner",
+                "geographic_scope": "USA"
+              }
+            ]
+          },
+          {
+            "tier": "Additional Partners",
+            "sponsors": [
+              {
+                "name": "Ticketmaster",
+                "industry": "Ticketing",
+                "category": "Official ticketing partner"
+              },
+              {
+                "name": "Vital Proteins",
+                "industry": "Nutrition / Collagen",
+                "title": "Presenting Sponsor of Mixed Doubles Championship",
+                "significance": "First Official Collagen Partner",
+                "category": "Nutrition"
+              },
+              {
+                "name": "Dove Advanced Care",
+                "industry": "Personal Care",
+                "significance": "First Official Underarm Sponsor",
+                "category": "Personal Care"
+              }
+            ]
+          }
+        ],
+        "broadcast_partners": [
+          {
+            "market": "USA, Latin America, Caribbean, Canada",
+            "partners": [
+              {
+                "name": "ESPN",
+                "deal_value_usd_total": 2040000000,
+                "contract_period": "2026-2037",
+                "deal_duration_years": 12,
+                "annual_value_usd": 170000000,
+                "previous_deal": {"value_usd_total": 770000000, "years": 11, "period": "2015-2025", "annual_usd": 75000000},
+                "growth_percent": 127,
+                "coverage": ["TV", "ESPN+", "ESPN Deportes (Spanish)"],
+                "host_broadcaster_rights": "Transferred back to USTA (2026)"
+              }
+            ]
+          },
+          {
+            "market": "UK/Ireland",
+            "partners": [
+              {
+                "name": "Sky Sports",
+                "status": "Returned 2023",
+                "contract_duration_years": 5,
+                "previous_broadcaster": "Amazon Prime (2016-2022)",
+                "original_broadcaster": "Sky (25 years prior to 2016)"
+              }
+            ]
+          },
+          {
+            "market": "Europe (select markets)",
+            "partners": [
+              {"name": "Eurosport", "markets": "France and select"}
+            ]
+          }
+        ],
+        "new_partnerships_2024_2025": [
+          {"name": "Moët & Chandon", "announced": "August 2024", "category": "Champagne"},
+          {"name": "Blue Owl Capital", "announced": "January 2025", "category": "Player Patch Program - all Grand Slams"}
+        ],
+        "major_renewals_2023_2024": [
+          {"name": "ESPN", "announced": "August 2024", "value_usd": 2040000000, "years": 12},
+          {"name": "American Express", "announced": "August 2023", "note": "Multi-year"},
+          {"name": "Tiffany & Co.", "announced": "August 2023", "innovation": "On-site engraving"},
+          {"name": "Chubb", "announced": "September 2024", "note": "Multi-year"},
+          {"name": "Grey Goose", "announced": 2023, "years": 5}
+        ],
+        "notable_replacements": [
+          {"category": "Official Vehicle", "out": "Mercedes-Benz", "in": "Cadillac", "year": 2022}
+        ]
+      },
+      "unique_assets": [
+        "Arthur Ashe Stadium (23,771 capacity - world's largest tennis stadium)",
+        "New York City location (global business/cultural capital, corporate HQ density)",
+        "Night sessions (primetime TV 8pm ET, after-work attendance)",
+        "Three-week format (Fan Week + 2-week main draw - longest engagement)",
+        "Honey Deuce ($12.8M signature beverage tradition, 17 years)",
+        "AI leadership (IBM watsonx - 300% productivity, Match Chat, AI Reports)",
+        "$800M capital project (facility expansion underway)",
+        "Player Patch Program (Blue Owl Capital exclusive, all Grand Slams 2025)",
+        "Sunday start (2025 innovation - first Sunday singles start in Open Era)"
+      ],
+      "strategic_positioning": "Commercial leadership model with premium positioning, technology innovation, experiential excellence, and NYC premium market advantage"
+    }
+  ],
+  "cross_tournament_benchmarks": {
+    "combined_financials_2024": {
+      "total_revenue_usd": 1683000000,
+      "total_sponsorship_revenue_usd_range": [437000000, 453000000],
+      "total_prize_money_usd": 264000000,
+      "total_sponsors_range": [114, 126],
+      "total_attendance": 3475231
+    },
+    "sponsorship_revenue_ranking": [
+      {"rank": 1, "tournament": "Wimbledon", "revenue_usd": 124730000, "sponsors": 17, "avg_per_sponsor": 7310000},
+      {"rank": 2, "tournament": "US Open", "revenue_usd_range": [118230000, 130500000], "sponsors": 25, "avg_per_sponsor_range": [4730000, 5220000]},
+      {"rank": 3, "tournament": "French Open", "revenue_usd": 74000000, "sponsors": 22, "avg_per_sponsor": 3360000},
+      {"rank": 4, "tournament": "Australian Open", "revenue_usd": 56000000, "sponsors": "50+", "avg_per_sponsor": 1120000}
+    ],
+    "total_revenue_ranking": [
+      {"rank": 1, "tournament": "US Open", "revenue_usd": 559600000, "profit_margin": 49},
+      {"rank": 2, "tournament": "Wimbledon", "revenue_usd": 555000000, "profit_margin": 10},
+      {"rank": 3, "tournament": "Australian Open", "revenue_usd": 400000000, "profit_margin": 15},
+      {"rank": 4, "tournament": "French Open", "revenue_usd": 368000000, "profit_margin_estimated": 18}
+    ],
+    "prize_money_ranking_2024": [
+      {"rank": 1, "tournament": "US Open", "total_usd": 75000000, "champion": 3600000},
+      {"rank": 2, "tournament": "Australian Open", "total_usd": 64000000, "champion": 1450000},
+      {"rank": 2, "tournament": "Wimbledon", "total_usd": 64000000, "champion": 3400000},
+      {"rank": 4, "tournament": "French Open", "total_usd": 61000000, "champion": 2760000}
+    ],
+    "attendance_ranking_2024": [
+      {"rank": 1, "tournament": "Australian Open", "attendance": 1218831},
+      {"rank": 2, "tournament": "US Open", "attendance": 1048669},
+      {"rank": 3, "tournament": "French Open", "attendance": 675080},
+      {"rank": 4, "tournament": "Wimbledon", "attendance": 532651}
+    ],
+    "broadcast_rights_ranking": [
+      {"rank": 1, "tournament": "Wimbledon", "annual_value_usd": 253420000},
+      {"rank": 2, "tournament": "US Open", "annual_value_usd": 170000000},
+      {"rank": 3, "tournament": "French Open", "annual_value_usd": 147000000},
+      {"rank": 4, "tournament": "Australian Open", "annual_value_usd": 89000000}
+    ],
+    "cross_tournament_sponsors": [
+      {
+        "name": "Emirates",
+        "grand_slams_sponsored": 4,
+        "tournaments": ["Australian Open", "French Open", "Wimbledon", "US Open"],
+        "category": "Aviation",
+        "significance": "Only airline sponsoring all 4 Grand Slams"
+      },
+      {
+        "name": "Rolex",
+        "grand_slams_sponsored": 4,
+        "tournaments": ["Australian Open", "French Open", "Wimbledon", "US Open"],
+        "category": "Luxury Watches",
+        "significance": "Only brand (with Emirates) sponsoring all 4 Grand Slams; Official Timekeeper"
+      },
+      {
+        "name": "Lavazza",
+        "grand_slams_sponsored": 3,
+        "tournaments": ["French Open", "Wimbledon", "US Open"],
+        "category": "Coffee"
+      },
+      {
+        "name": "Stella Artois",
+        "grand_slams_sponsored": 2,
+        "tournaments": ["French Open", "Wimbledon"],
+        "category": "Beer"
+      },
+      {
+        "name": "Ralph Lauren",
+        "grand_slams_sponsored": 3,
+        "tournaments": ["Australian Open", "Wimbledon", "US Open"],
+        "category": "Apparel/Outfitting"
+      },
+      {
+        "name": "American Express",
+        "grand_slams_sponsored": 3,
+        "tournaments": ["Australian Open", "Wimbledon", "US Open"],
+        "category": "Payments"
+      },
+      {
+        "name": "Haier",
+        "grand_slams_sponsored": 2,
+        "tournaments": ["Australian Open", "French Open"],
+        "category": "Home Appliances"
+      }
+    ],
+    "largest_individual_deals": [
+      {"rank": 1, "sponsor": "Barclays", "tournament": "Wimbledon", "annual_value_usd": 26000000, "category": "Banking"},
+      {"rank": 2, "sponsor": "JP Morgan Chase", "tournament": "US Open", "annual_value_usd": 22000000, "category": "Banking"},
+      {"rank": 3, "sponsor": "Luzhou Laojiao", "tournament": "Australian Open", "annual_value_aud": 20000000, "annual_value_usd": 13000000, "category": "Spirits"},
+      {"rank": 3, "sponsor": "Kia", "tournament": "Australian Open", "annual_value_aud": 20000000, "annual_value_usd": 13000000, "category": "Automotive"},
+      {"rank": 5, "sponsor": "JP Morgan", "tournament": "US Open", "annual_value_usd_estimated": 19000000, "category": "Investment Banking"},
+      {"rank": 6, "sponsor": "Emirates", "tournament": "US Open", "annual_value_usd": 17000000, "category": "Aviation"},
+      {"rank": 7, "sponsor": "Emirates", "tournament": "Wimbledon", "annual_value_usd": 12000000, "category": "Aviation"},
+      {"rank": 8, "sponsor": "Rolex", "tournament": "Various", "annual_value_usd_estimated": 10000000, "category": "Luxury Watches"},
+      {"rank": 9, "sponsor": "American Express", "tournament": "US Open", "annual_value_usd": 10000000, "category": "Payments"},
+      {"rank": 10, "sponsor": "ENGIE", "tournament": "French Open", "annual_value_usd_estimated": 7000000, "category": "Energy/Sustainability"}
+    ],
+    "partnership_longevity_records": [
+      {"rank": 1, "sponsor": "Slazenger", "tournament": "Wimbledon", "years": 122, "start": 1902, "significance": "Longest unbroken sporting sponsorship in history"},
+      {"rank": 2, "sponsor": "BNP Paribas", "tournament": "French Open", "years": 50, "start": 1973, "significance": "Longest sports sponsorship in history"},
+      {"rank": 3, "sponsor": "Rolex", "tournament": "Wimbledon", "years": 46, "start": 1978, "significance": "World's oldest sports marketing deal"},
+      {"rank": 4, "sponsor": "JP Morgan Chase", "tournament": "US Open", "years": 43, "start": 1981},
+      {"rank": 5, "sponsor": "Keith Prowse", "tournament": "Wimbledon", "years": 40, "start": 1982},
+      {"rank": 6, "sponsor": "Tiffany & Co.", "tournament": "US Open", "years": 37, "start": 1987},
+      {"rank": 7, "sponsor": "Evian", "tournament": "US Open", "years": 35, "start": 1989},
+      {"rank": 8, "sponsor": "IBM", "tournament": "Wimbledon", "years": 34, "start": 1990},
+      {"rank": 9, "sponsor": "American Express", "tournament": "US Open", "years": 30, "start": 1994},
+      {"rank": 9, "sponsor": "IBM", "tournament": "US Open", "years": 30, "start": 1994}
+    ],
+    "strategic_models": [
+      {
+        "tournament": "Wimbledon",
+        "model": "Premium Exclusivity",
+        "description": "Clean Court Philosophy - fewest sponsors (17), highest revenue ($124.7M), highest avg per sponsor ($7.31M)",
+        "trade_off": "Foregoes $60M+ annually",
+        "advantage": "Commands 10x category increases (HSBC £2M → Barclays £20M)"
+      },
+      {
+        "tournament": "US Open",
+        "model": "Commercial Leadership",
+        "description": "NYC premium market + technology innovation + experiential excellence",
+        "sponsors": 25,
+        "revenue_range_usd": [118230000, 130500000],
+        "advantage": "Highest total revenue ($559.6M), best profit margin (49%), Honey Deuce tradition ($12.8M)"
+      },
+      {
+        "tournament": "French Open",
+        "model": "Balanced Heritage",
+        "description": "European luxury positioning + long-term partnerships + sustainability leadership",
+        "sponsors": 22,
+        "revenue_usd": 74000000,
+        "advantage": "BNP Paribas 50+ years (world record), clay court uniqueness, Parisian prestige"
+      },
+      {
+        "tournament": "Australian Open",
+        "model": "Volume Growth",
+        "description": "Aggressive expansion + Asian market focus + digital innovation",
+        "sponsors": "50+",
+        "revenue_usd": 56000000,
+        "yoy_growth_percent": 35,
+        "advantage": "3-week platform, AO Metaverse, targeting A$750M revenue within 5 years"
+      }
+    ],
+    "emerging_trends": [
+      "AI & Technology Integration (IBM/Infosys partnerships, 85% fan value)",
+      "Sustainability & ESG Requirements (ENGIE 100% renewable, Renault EV, Ralph Lauren recycled materials)",
+      "Social Impact as Standard (Foundation donations, community programs)",
+      "Experiential > Traditional (Honey Deuce $12.8M, VR activations, cardholder lounges)",
+      "Long-Term Partnership Extensions (30-50+ year relationships common)",
+      "Category Innovation (Sunscreen, Underarm, Collagen, Cyber Security firsts)",
+      "Asian Market Expansion (Kia, Luzhou Laojiao, Haier, Luckin Coffee)",
+      "Broadcast Rights Escalation (French Open USA tripled, US Open +127%)"
+    ],
+    "market_outlook_2025_2030": {
+      "projected_sponsorship_revenue_2030_usd_range": [600000000, 660000000],
+      "combined_cagr_percent_range": [5, 7],
+      "growth_drivers": [
+        "AI & technology integration",
+        "Asian market expansion",
+        "Premium experience demand",
+        "Sustainability partnerships",
+        "Category innovation",
+        "Broadcast rights escalation"
+      ]
+    }
+  }
+}
