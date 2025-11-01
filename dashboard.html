@@ -434,7 +434,7 @@
             <!-- Section 5: Cross-Tournament Sponsors -->
             <section class="chart-section">
                 <h2 class="section-title">CROSS-TOURNAMENT SPONSORS</h2>
-                <div class="charts-grid single-chart">
+                <div class="charts-grid">
                     <!-- Sponsors Present at Multiple Grand Slams -->
                     <div class="chart-container">
                         <h3 class="chart-title">
@@ -444,13 +444,22 @@
                             <canvas id="crossTournamentSponsors"></canvas>
                         </div>
                     </div>
+                    <!-- Category Distribution Across Tournaments -->
+                    <div class="chart-container">
+                        <h3 class="chart-title">
+                            SPONSOR CATEGORIES BY TOURNAMENT
+                        </h3>
+                        <div class="chart-canvas">
+                            <canvas id="sponsorCategoriesByTournament"></canvas>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <!-- Section 6: Top Sponsorship Deals -->
             <section class="chart-section">
                 <h2 class="section-title">TOP SPONSORSHIP DEALS</h2>
-                <div class="charts-grid single-chart">
+                <div class="charts-grid">
                     <!-- Largest Individual Sponsorship Deals -->
                     <div class="chart-container">
                         <h3 class="chart-title">
@@ -460,13 +469,22 @@
                             <canvas id="topSponsorshipDeals"></canvas>
                         </div>
                     </div>
+                    <!-- Top Categories by Deal Value -->
+                    <div class="chart-container">
+                        <h3 class="chart-title">
+                            TOP CATEGORIES BY DEAL VALUE
+                        </h3>
+                        <div class="chart-canvas">
+                            <canvas id="topCategoriesByValue"></canvas>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <!-- Section 7: Partnership Longevity -->
             <section class="chart-section">
                 <h2 class="section-title">PARTNERSHIP LONGEVITY</h2>
-                <div class="charts-grid single-chart">
+                <div class="charts-grid">
                     <!-- Longest-Running Sponsorship Partnerships -->
                     <div class="chart-container">
                         <h3 class="chart-title">
@@ -474,6 +492,15 @@
                         </h3>
                         <div class="chart-canvas">
                             <canvas id="partnershipLongevity"></canvas>
+                        </div>
+                    </div>
+                    <!-- Average Partnership Duration by Tournament -->
+                    <div class="chart-container">
+                        <h3 class="chart-title">
+                            AVERAGE PARTNERSHIP DURATION BY TOURNAMENT
+                        </h3>
+                        <div class="chart-canvas">
+                            <canvas id="avgPartnershipDuration"></canvas>
                         </div>
                     </div>
                 </div>
@@ -652,6 +679,10 @@
                                         label = data.toString(); // Just show the number
                                     } else if (
                                         chartId === "partnershipLongevity"
+                                    ) {
+                                        label = data.toString(); // Just show years as number
+                                    } else if (
+                                        chartId === "avgPartnershipDuration"
                                     ) {
                                         label = data.toString(); // Just show years as number
                                     } else {
@@ -1899,6 +1930,124 @@
                 },
             });
 
+            // Sponsor Categories by Tournament (Stacked Bar Chart)
+            const sponsorCategoriesByTournamentCtx = document
+                .getElementById("sponsorCategoriesByTournament")
+                .getContext("2d");
+            new Chart(sponsorCategoriesByTournamentCtx, {
+                type: "bar",
+                data: {
+                    labels: [
+                        "Wimbledon",
+                        "US Open",
+                        "French Open",
+                        "Australian Open",
+                    ],
+                    datasets: [
+                        {
+                            label: "Banking/Finance",
+                            data: [2, 4, 2, 2], // Number of sponsors in this category
+                            backgroundColor: "#EB5E28",
+                        },
+                        {
+                            label: "Automotive",
+                            data: [1, 1, 1, 1],
+                            backgroundColor: "#252422",
+                        },
+                        {
+                            label: "Technology",
+                            data: [1, 1, 1, 1],
+                            backgroundColor: "#403D39",
+                        },
+                        {
+                            label: "Beverages",
+                            data: [3, 3, 4, 4],
+                            backgroundColor: "#CCC5B9",
+                        },
+                        {
+                            label: "Luxury/Fashion",
+                            data: [3, 2, 2, 2],
+                            backgroundColor: "#8B8680",
+                        },
+                        {
+                            label: "Other",
+                            data: [7, 14, 12, 41],
+                            backgroundColor: "#F0EDE6",
+                        },
+                    ],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            stacked: true,
+                            grid: {
+                                display: false,
+                            },
+                            ticks: {
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                    weight: "bold",
+                                },
+                            },
+                        },
+                        y: {
+                            stacked: true,
+                            grid: {
+                                color: "#F0EDE6",
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                },
+                            },
+                            title: {
+                                display: true,
+                                text: "NUMBER OF SPONSORS",
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 12,
+                                    weight: "bold",
+                                },
+                            },
+                        },
+                    },
+                    plugins: {
+                        legend: {
+                            position: "bottom",
+                            labels: {
+                                usePointStyle: true,
+                                pointStyle: "circle",
+                                padding: 10,
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 10,
+                                },
+                            },
+                        },
+                        tooltip: {
+                            callbacks: {
+                                afterLabel: function (context) {
+                                    const total = context.dataset.data.reduce(
+                                        (a, b) => a + b,
+                                        0,
+                                    );
+                                    const percentage = (
+                                        (context.parsed.y / total) *
+                                        100
+                                    ).toFixed(1);
+                                    return `${percentage}% of category`;
+                                },
+                            },
+                        },
+                    },
+                },
+            });
+
             // ========== SECTION 6: TOP SPONSORSHIP DEALS ==========
 
             // Largest Individual Sponsorship Deals (horizontal bar)
@@ -1976,6 +2125,77 @@
                 },
             });
 
+            // Top Categories by Deal Value (Donut Chart)
+            const topCategoriesByValueCtx = document
+                .getElementById("topCategoriesByValue")
+                .getContext("2d");
+            new Chart(topCategoriesByValueCtx, {
+                type: "doughnut",
+                data: {
+                    labels: [
+                        "Banking/Finance",
+                        "Aviation",
+                        "Automotive",
+                        "Technology",
+                        "Luxury/Fashion",
+                        "Other",
+                    ],
+                    datasets: [
+                        {
+                            data: [88, 41, 13, 10, 10, 38], // Total deal values in $M
+                            backgroundColor: [
+                                "#EB5E28",
+                                "#252422",
+                                "#403D39",
+                                "#CCC5B9",
+                                "#8B8680",
+                                "#F0EDE6",
+                            ],
+                            borderWidth: 2,
+                            borderColor: "#FFFCF2",
+                        },
+                    ],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: "right",
+                            labels: {
+                                usePointStyle: true,
+                                pointStyle: "circle",
+                                padding: 15,
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                },
+                            },
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    const value = context.parsed;
+                                    const total = context.dataset.data.reduce(
+                                        (a, b) => a + b,
+                                        0,
+                                    );
+                                    const percentage = (
+                                        (value / total) *
+                                        100
+                                    ).toFixed(1);
+                                    return [
+                                        `${context.label}`,
+                                        `Value: $${value}M`,
+                                        `Share: ${percentage}%`,
+                                    ];
+                                },
+                            },
+                        },
+                    },
+                },
+            });
+
             // ========== SECTION 7: PARTNERSHIP LONGEVITY ==========
 
             // Longest-Running Sponsorship Partnerships (horizontal bar)
@@ -2039,6 +2259,106 @@
                             },
                         },
                         y: {
+                            grid: {
+                                display: false,
+                            },
+                            ticks: {
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                    weight: "bold",
+                                },
+                            },
+                        },
+                    },
+                },
+            });
+
+            // Average Partnership Duration by Tournament (Bar Chart)
+            const avgPartnershipDurationCtx = document
+                .getElementById("avgPartnershipDuration")
+                .getContext("2d");
+            new Chart(avgPartnershipDurationCtx, {
+                type: "bar",
+                data: {
+                    labels: [
+                        "Wimbledon",
+                        "US Open",
+                        "French Open",
+                        "Australian Open",
+                    ],
+                    datasets: [
+                        {
+                            data: [35, 28, 22, 15], // Average years
+                            backgroundColor: [
+                                "#252422",
+                                "#EB5E28",
+                                "#403D39",
+                                "#CCC5B9",
+                            ],
+                            borderRadius: 8,
+                            barThickness: 60,
+                        },
+                    ],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    return `Average: ${context.parsed.y} years`;
+                                },
+                                afterLabel: function (context) {
+                                    const tournament = context.label;
+                                    let detail = "";
+                                    if (tournament === "Wimbledon") {
+                                        detail = "Heritage & tradition focus";
+                                    } else if (tournament === "US Open") {
+                                        detail =
+                                            "Long-term commercial partnerships";
+                                    } else if (tournament === "French Open") {
+                                        detail = "Stable European partnerships";
+                                    } else {
+                                        detail = "High volume, shorter deals";
+                                    }
+                                    return detail;
+                                },
+                            },
+                        },
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 40,
+                            grid: {
+                                color: "#F0EDE6",
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                callback: function (value) {
+                                    return `${value} yrs`;
+                                },
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                },
+                            },
+                            title: {
+                                display: true,
+                                text: "AVERAGE PARTNERSHIP DURATION (YEARS)",
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 12,
+                                    weight: "bold",
+                                },
+                            },
+                        },
+                        x: {
                             grid: {
                                 display: false,
                             },
