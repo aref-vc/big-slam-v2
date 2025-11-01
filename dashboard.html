@@ -641,14 +641,22 @@
                         if (!meta.hidden) {
                             meta.data.forEach((element, index) => {
                                 if (chart.config.type === "bar") {
+                                    // Check chart ID for proper formatting
+                                    const chartId = chart.canvas.id;
+
+                                    // Set font size based on chart
+                                    const fontSize =
+                                        chartId ===
+                                        "sponsorCategoriesByTournament"
+                                            ? "10px"
+                                            : "12px";
+
                                     ctx.fillStyle = "#FFFCF2";
-                                    ctx.font = "bold 12px Berkeley Mono";
+                                    ctx.font = `bold ${fontSize} Berkeley Mono`;
                                     ctx.textAlign = "center";
                                     ctx.textBaseline = "middle";
 
                                     const data = dataset.data[index];
-                                    // Check chart ID for proper formatting
-                                    const chartId = chart.canvas.id;
                                     let label;
                                     if (chartId === "numberOfSponsors") {
                                         label = data.toString();
@@ -685,6 +693,11 @@
                                         chartId === "avgPartnershipDuration"
                                     ) {
                                         label = data.toString(); // Just show years as number
+                                    } else if (
+                                        chartId ===
+                                        "sponsorCategoriesByTournament"
+                                    ) {
+                                        label = `${data}%`; // Show as percentage
                                     } else {
                                         label =
                                             typeof data === "number"
@@ -706,7 +719,16 @@
                                     } else {
                                         // For vertical bars
                                         x = element.x;
-                                        y = element.y + 15;
+                                        // Position on top of bar for sponsorCategoriesByTournament
+                                        if (
+                                            chartId ===
+                                            "sponsorCategoriesByTournament"
+                                        ) {
+                                            y = element.y - 5; // Position above the bar
+                                            ctx.textBaseline = "bottom";
+                                        } else {
+                                            y = element.y + 15;
+                                        }
                                     }
 
                                     ctx.fillText(label, x, y);
