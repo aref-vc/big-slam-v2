@@ -910,7 +910,17 @@
                     maintainAspectRatio: false,
                     plugins: {
                         legend: {
-                            display: false, // Hide legend since we only have one dataset
+                            display: true,
+                            position: "right",
+                            labels: {
+                                usePointStyle: true,
+                                pointStyle: "circle",
+                                padding: 15,
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                },
+                            },
                         },
                         tooltip: {
                             callbacks: {
