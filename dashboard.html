@@ -482,7 +482,7 @@
             <!-- Section 8: Strategic Positioning Matrix -->
             <section class="chart-section">
                 <h2 class="section-title">STRATEGIC POSITIONING MATRIX</h2>
-                <div class="charts-grid single-chart">
+                <div class="charts-grid">
                     <!-- Sponsors vs Revenue per Sponsor -->
                     <div class="chart-container">
                         <h3 class="chart-title">
@@ -490,6 +490,15 @@
                         </h3>
                         <div class="chart-canvas">
                             <canvas id="strategicPositioning"></canvas>
+                        </div>
+                    </div>
+                    <!-- Total Revenue vs Attendance (Bubble: Profit Margin) -->
+                    <div class="chart-container">
+                        <h3 class="chart-title">
+                            REVENUE VS ATTENDANCE (SIZE: PROFIT MARGIN)
+                        </h3>
+                        <div class="chart-canvas">
+                            <canvas id="revenueAttendanceMatrix"></canvas>
                         </div>
                     </div>
                 </div>
@@ -2163,6 +2172,165 @@
                             ticks: {
                                 callback: function (value) {
                                     return `$${value}M`;
+                                },
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                },
+                            },
+                        },
+                    },
+                },
+            });
+
+            // Revenue vs Attendance Matrix (Bubble Size: Profit Margin)
+            const revenueAttendanceMatrixCtx = document
+                .getElementById("revenueAttendanceMatrix")
+                .getContext("2d");
+            new Chart(revenueAttendanceMatrixCtx, {
+                type: "bubble",
+                data: {
+                    datasets: [
+                        {
+                            label: "US Open",
+                            data: [
+                                {
+                                    x: 534, // Total Revenue ($M)
+                                    y: 1000000, // Attendance
+                                    r: 25, // Profit margin 49% scaled
+                                },
+                            ],
+                            backgroundColor: "rgba(235, 94, 40, 0.8)",
+                            borderColor: "#EB5E28",
+                            borderWidth: 2,
+                        },
+                        {
+                            label: "Wimbledon",
+                            data: [
+                                {
+                                    x: 555, // Total Revenue ($M)
+                                    y: 532651, // Attendance
+                                    r: 10, // Profit margin 10% scaled
+                                },
+                            ],
+                            backgroundColor: "rgba(37, 36, 34, 0.8)",
+                            borderColor: "#252422",
+                            borderWidth: 2,
+                        },
+                        {
+                            label: "French Open",
+                            data: [
+                                {
+                                    x: 368, // Total Revenue ($M)
+                                    y: 675000, // Attendance
+                                    r: 15, // Profit margin 20% scaled
+                                },
+                            ],
+                            backgroundColor: "rgba(64, 61, 57, 0.8)",
+                            borderColor: "#403D39",
+                            borderWidth: 2,
+                        },
+                        {
+                            label: "Australian Open",
+                            data: [
+                                {
+                                    x: 364, // Total Revenue ($M)
+                                    y: 1110657, // Attendance
+                                    r: 12, // Profit margin 15% scaled
+                                },
+                            ],
+                            backgroundColor: "rgba(204, 197, 185, 0.8)",
+                            borderColor: "#CCC5B9",
+                            borderWidth: 2,
+                        },
+                    ],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: "bottom",
+                            labels: {
+                                usePointStyle: true,
+                                pointStyle: "circle",
+                                padding: 15,
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                },
+                            },
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    const label = context.dataset.label;
+                                    const revenue = context.parsed.x;
+                                    const attendance = context.parsed.y;
+                                    const profitMargin =
+                                        label === "US Open"
+                                            ? 49
+                                            : label === "Wimbledon"
+                                              ? 10
+                                              : label === "French Open"
+                                                ? 20
+                                                : 15;
+                                    return [
+                                        `${label}`,
+                                        `Revenue: $${revenue}M`,
+                                        `Attendance: ${(attendance / 1000000).toFixed(2)}M`,
+                                        `Profit Margin: ${profitMargin}%`,
+                                    ];
+                                },
+                            },
+                        },
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: "TOTAL REVENUE ($M)",
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 12,
+                                    weight: "bold",
+                                },
+                            },
+                            min: 350,
+                            max: 570,
+                            grid: {
+                                color: "#F0EDE6",
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                callback: function (value) {
+                                    return `$${value}M`;
+                                },
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                },
+                            },
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: "ATTENDANCE (MILLIONS)",
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 12,
+                                    weight: "bold",
+                                },
+                            },
+                            min: 400000,
+                            max: 1200000,
+                            grid: {
+                                color: "#F0EDE6",
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                callback: function (value) {
+                                    return `${(value / 1000000).toFixed(1)}M`;
                                 },
                                 font: {
                                     family: "Berkeley Mono",
