@@ -315,6 +315,44 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Section 3: Financial Performance -->
+            <section class="chart-section">
+                <h2 class="section-title">FINANCIAL PERFORMANCE</h2>
+                <div class="charts-grid">
+                    <!-- Profit Margin Comparison -->
+                    <div class="chart-container">
+                        <h3 class="chart-title">PROFIT MARGIN COMPARISON</h3>
+                        <div class="chart-canvas">
+                            <canvas id="profitMargin"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Prize Money Distribution -->
+                    <div class="chart-container">
+                        <h3 class="chart-title">PRIZE MONEY DISTRIBUTION</h3>
+                        <div class="chart-canvas">
+                            <canvas id="prizeMoney"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Broadcast Rights Value Comparison -->
+                    <div class="chart-container">
+                        <h3 class="chart-title">BROADCAST RIGHTS VALUE</h3>
+                        <div class="chart-canvas">
+                            <canvas id="broadcastRights"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Revenue Per Attendee -->
+                    <div class="chart-container">
+                        <h3 class="chart-title">REVENUE PER ATTENDEE</h3>
+                        <div class="chart-canvas">
+                            <canvas id="revenuePerAttendee"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
 
         <script>
@@ -338,11 +376,17 @@
                                     ctx.textBaseline = "middle";
 
                                     const data = dataset.data[index];
-                                    // Check if this is the Number of Sponsors chart
+                                    // Check chart ID for proper formatting
                                     const chartId = chart.canvas.id;
                                     let label;
                                     if (chartId === "numberOfSponsors") {
                                         label = data.toString();
+                                    } else if (chartId === "profitMargin") {
+                                        label = `${data}%`;
+                                    } else if (
+                                        chartId === "revenuePerAttendee"
+                                    ) {
+                                        label = `$${data}`;
                                     } else {
                                         label =
                                             typeof data === "number"
@@ -1050,6 +1094,311 @@
                             },
                         },
                         y: {
+                            grid: {
+                                display: false,
+                            },
+                            ticks: {
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                    weight: "bold",
+                                },
+                            },
+                        },
+                    },
+                },
+            });
+
+            // ========== SECTION 3: FINANCIAL PERFORMANCE ==========
+
+            // Profit Margin Comparison (sorted highest to lowest)
+            const profitMarginCtx = document
+                .getElementById("profitMargin")
+                .getContext("2d");
+            new Chart(profitMarginCtx, {
+                type: "bar",
+                data: {
+                    labels: [
+                        "US Open",
+                        "French Open",
+                        "Australian Open",
+                        "Wimbledon",
+                    ],
+                    datasets: [
+                        {
+                            data: [49, 20, 15, 10],
+                            backgroundColor: "#252422",
+                            borderRadius: 8,
+                            barThickness: 60,
+                        },
+                    ],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    return `${context.parsed.y}% profit margin`;
+                                },
+                            },
+                        },
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 60,
+                            grid: {
+                                color: "#F0EDE6",
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                callback: function (value) {
+                                    return `${value}%`;
+                                },
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                },
+                            },
+                        },
+                        x: {
+                            grid: {
+                                display: false,
+                            },
+                            ticks: {
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                    weight: "bold",
+                                },
+                            },
+                        },
+                    },
+                },
+            });
+
+            // Prize Money Distribution (sorted highest to lowest)
+            const prizeMoneyCtx = document
+                .getElementById("prizeMoney")
+                .getContext("2d");
+            new Chart(prizeMoneyCtx, {
+                type: "bar",
+                data: {
+                    labels: [
+                        "US Open",
+                        "Australian Open",
+                        "Wimbledon",
+                        "French Open",
+                    ],
+                    datasets: [
+                        {
+                            label: "Total Prize Pool",
+                            data: [75, 64, 64, 61],
+                            backgroundColor: "#EB5E28",
+                            borderRadius: 8,
+                            barThickness: 30,
+                        },
+                        {
+                            label: "Champion Prize",
+                            data: [3.6, 1.45, 3.4, 2.76],
+                            backgroundColor: "#403D39",
+                            borderRadius: 8,
+                            barThickness: 30,
+                        },
+                    ],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: "bottom",
+                            labels: {
+                                usePointStyle: true,
+                                pointStyle: "circle",
+                                padding: 15,
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                },
+                            },
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    return (
+                                        context.dataset.label +
+                                        ": $" +
+                                        context.parsed.y +
+                                        "M"
+                                    );
+                                },
+                            },
+                        },
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: "#F0EDE6",
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                callback: function (value) {
+                                    return `$${value}M`;
+                                },
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                },
+                            },
+                        },
+                        x: {
+                            grid: {
+                                display: false,
+                            },
+                            ticks: {
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                    weight: "bold",
+                                },
+                            },
+                        },
+                    },
+                },
+            });
+
+            // Broadcast Rights Value (sorted highest to lowest)
+            const broadcastRightsCtx = document
+                .getElementById("broadcastRights")
+                .getContext("2d");
+            new Chart(broadcastRightsCtx, {
+                type: "bar",
+                data: {
+                    labels: [
+                        "Wimbledon",
+                        "US Open",
+                        "French Open",
+                        "Australian Open",
+                    ],
+                    datasets: [
+                        {
+                            data: [253, 170, 147, 89],
+                            backgroundColor: "#CCC5B9",
+                            borderRadius: 8,
+                            barThickness: 60,
+                        },
+                    ],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    return `$${context.parsed.y}M annual value`;
+                                },
+                            },
+                        },
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: "#F0EDE6",
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                callback: function (value) {
+                                    return `$${value}M`;
+                                },
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                },
+                            },
+                        },
+                        x: {
+                            grid: {
+                                display: false,
+                            },
+                            ticks: {
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                    weight: "bold",
+                                },
+                            },
+                        },
+                    },
+                },
+            });
+
+            // Revenue Per Attendee (sorted highest to lowest)
+            const revenuePerAttendeeCtx = document
+                .getElementById("revenuePerAttendee")
+                .getContext("2d");
+            new Chart(revenuePerAttendeeCtx, {
+                type: "bar",
+                data: {
+                    labels: [
+                        "Wimbledon",
+                        "French Open",
+                        "US Open",
+                        "Australian Open",
+                    ],
+                    datasets: [
+                        {
+                            data: [1042, 545, 534, 328],
+                            backgroundColor: "#403D39",
+                            borderRadius: 8,
+                            barThickness: 60,
+                        },
+                    ],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    return `$${context.parsed.y} per attendee`;
+                                },
+                            },
+                        },
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: "#F0EDE6",
+                                drawBorder: false,
+                            },
+                            ticks: {
+                                callback: function (value) {
+                                    return `$${value}`;
+                                },
+                                font: {
+                                    family: "Berkeley Mono",
+                                    size: 11,
+                                },
+                            },
+                        },
+                        x: {
                             grid: {
                                 display: false,
                             },
